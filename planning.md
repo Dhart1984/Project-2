@@ -19,4 +19,4 @@ Jose: Researcher, Frontend, CSS, views
 Shilpa: Git Owner, Documentation
 
 
-![WireFrame](https://imgur.com/Fl2NCqO "Wire Frame")
+![Wire Frame](https://i.imgur.com/Fl2NCqO.png)
