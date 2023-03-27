@@ -15,10 +15,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 require('dotenv').config();
-<<<<<<< HEAD
-=======
-console.log(process.env.DATABASE_URL, "CHECK TO SEE IF WORKING")
->>>>>>> 608a6ed8b1835d3d333abfcb1516d97ee25028ac
 require('./config/database');
 
 app.use(logger('dev'));
@@ -26,12 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-<<<<<<< HEAD
 app.use(methodOverride('_method'));
-=======
-app.use(methodOverride('_method'))
-
->>>>>>> 608a6ed8b1835d3d333abfcb1516d97ee25028ac
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
