@@ -1,19 +1,19 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-// const dailyTaskSchema = new mongoose.Schema({
-//     taskName: {
-//         type: String
+const goalSchema = new mongoose.Schema({
+    goalName: {
+        type: String
 
-//     },
-//     dueDate: {
-//         type: Date,
+    },
+    dueDate: {
+        type: Date,
         
-//     },
-//     taskType: {
-//         type: String,
-//         enum: ["personal", "work", "Southwest", "Southeast", "Northeast"]
-//     }
-// })
+    },
+    notes: {
+      type: String,
+    },
+    dailyTask: [dailyTaskSchema]
+})
 
 
-// module.exports = mongoose.model('Daily-Task', dailyTaskSchema)
+module.exports = mongoose.model('Goal', goalSchema)
