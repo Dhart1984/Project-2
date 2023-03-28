@@ -1,14 +1,50 @@
 const Task = require('../models/Daily-Task')
 
-function newTask(req, res){
-  res.render('tasks/new', {title: 'Enter a new Task'})
-}
-
-function index (req,res){
-  res.render('tasks/index', {title: 'All tasks'})
-}
 
 module.exports = {
   new: newTask,
-  index
+  create,
+  index,
+  show,
 }
+
+
+function newTask(req, res){
+  console.log('this is now working')
+  res.render('tasks/new', {title: 'Enter a new Task'})
+}
+
+function create(req, res) {
+  Daily-Task.create(req.body).then(function (newTask) {
+      console.log(newState)
+      res.redirect('/tasks')
+  })
+  console.log(req.body)
+}
+
+function index(req, res) {
+  Daily-Task.find({})
+      .then(function (task) {
+          res.render('tasks/index', { tasks, title: 'All Tasks' })
+      })
+      .catch(function (err) {
+          console.log(err) // log the error for debugging or redirect to error page 
+          res.redirect('/')
+      })
+}
+
+function show(req, res) {
+  Daily-Task.findById(req.params.id).then(
+      function (task) {
+          res.render('tasks/show', { task, title: 'Task Details' })
+      })
+      .catch(function (err) {
+          console.log(err)
+          res.redirect('/')
+      })
+  console.log("this function is doing something ")
+}
+
+
+
+
