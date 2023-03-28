@@ -5,7 +5,7 @@ function newTask(req, res){
 }
 
 function index (req,res){
-  res.render('tasks/index', {title: 'All tasks'})
+  res.render('tasks/new', {title: 'All tasks'})
 }
 
 module.exports = {
