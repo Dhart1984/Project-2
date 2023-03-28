@@ -11,7 +11,7 @@
 
 <form action="/tasks" method="POST" class="new-form">
   <label>Name:
-      <input type="text" name="taskName">
+      <input type="text" name="name">
   </label>
   <label>Due Date:
       <input type="date" name="dueDate">
@@ -35,7 +35,7 @@
 <section class="results"><% tasks.forEach(t => { %>
   <div>Name:</div>
   <div>
-      <%=t.name%>
+      <%=t.taskName%>
   </div>
   <div>Due Date:</div>
   <div>

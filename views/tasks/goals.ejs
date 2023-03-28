@@ -9,11 +9,60 @@
 </head>
 <body>
     <h1>Got any Goals?</h1>
-    <form action="/goals/<%= t._id %>?_method=DELETE"
+
+
+    <label>Name:
+        <input type="text" name="taskName">
+    </label>
+    <label>Due Date:
+        <input type="date" name="dueDate">
+    </label>
+    <label>Goal Type:
+        <select name="goalType">
+            <option value="Priority">Priority</option>
+            <option value="Median">Median</option>
+            <option value="Unimportant">Unimportant</option>
+        
+        </select>
+    </label>
+
+    <div class="button-wrapper">
+        <button class="addBtn" type="submit">Add Goal</button>
+        </div>
+      </form>
+      <section class="results"><% goals.forEach(g => { %>
+        <div>Goal Name:</div>
+        <div>
+            <%=g.goalName%>
+        </div>
+        <div>Due Date:</div>
+        <div>
+          <%=g.dueDate%> 
+        </div>
+        <div>Notes:</div>
+        <div>
+            <%=g.notes%>
+        </div>
+        <form action="/goals/<%= t._id %>?_method=DELETE"
         class="delete-form" method="POST">
         <button type="submit">Delete</button>
       </form>
       <br>
       
+        
+        
+        
+        
+        
+      
+        <% }) %>
+      </section>
+
+
+
+
+
+    
+
 
 <%- include("../partials/footer") %>

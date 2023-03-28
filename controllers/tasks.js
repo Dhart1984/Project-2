@@ -50,5 +50,12 @@ function deleteTask(req, res){
   })
 }
 
+function deleteTask(req, res){
+  Task.find({})
+  .then(function(tasks){
+    tasks.splice(req.params.id, 1)
+    res.render('tasks/new', { title: 'Delete task', tasks})
+  })  
+}
 
 

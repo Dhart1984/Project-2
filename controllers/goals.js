@@ -37,7 +37,7 @@ function index(req, res) {
 function show(req, res) {
   Goal.findById(req.params.id).then(
       function (goal) {
-          res.render('/', { goal, title: 'State Details' })
+          res.render('/', { goal, title: 'Goal Details' })
       })
       .catch(function (err) {
           console.log(err)
