@@ -1,0 +1,16 @@
+<%- include("../partials/header", {title}) %>
+<h1>Add Bullets</h1>
+<!-- <form action="/tasks" method="POST"></form>
+<label>Tasks:
+  <button class="addBtn" type="submit">Add Task</button>
+</label>
+
+</form> -->
+
+<form action="/bullets" method="POST" class="new-form">
+    <label>Name:
+        <input type="text" name="journal">
+    </label>
+    <label>Due Date:
+        <input type="date" name="date">
+    </label>
