@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const dailyTaskSchema = new mongoose.Schema({
     taskName: {
-        type: String
+        type: String,
 
     },
     dueDate: {
-        type: Date        
+        type: Date,        
     },
     taskType: {
         type: String,

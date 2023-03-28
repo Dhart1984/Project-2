@@ -15,14 +15,19 @@ module.exports = {
 
 
 function newTask(req, res){
-  console.log('this is now working')
-  res.render('tasks/new', {title: 'Enter a new Task'})
-}
+  Task.find({}).then(function(tasks){
+    res.render('tasks/new', {title: 'Enter a new Task', tasks})
+
+
+  }) .catch(function (err) {
+    console.log(err) // log the error for debugging or redirect to error page 
+    res.redirect('/')
+})}
 
 function create(req, res) {
   Task.create(req.body).then(function (newTask) {
-      console.log(newTasks)
-      res.redirect('/tasks')
+      // console.log(newTasks)
+      res.redirect('/tasks/new')
   })
   console.log(req.body)
 }
@@ -49,7 +54,6 @@ function show(req, res) {
       })
   console.log("this function is doing something ")
 }
-
 
 
 
