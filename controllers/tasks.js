@@ -7,7 +7,6 @@ module.exports = {
   new: newTask,
   create,
   index,
-  show,
   delete: deleteTask
 }
 
@@ -25,7 +24,7 @@ function newTask(req, res){
 function create(req, res) {
   Task.create(req.body).then(function (newTask) {
       // console.log(newTasks)
-      res.redirect('/tasks/new')
+      res.redirect('/tasks')
   })
   console.log(req.body)
 }
@@ -41,26 +40,15 @@ function index(req, res) {
       })
 }
 
-function show(req, res) {
-  Task.findById(req.params.id).then(
-      function (task) {
-          res.render('tasks/show', { task, title: 'Task Details' })
-      })
-      .catch(function (err) {
-          console.log(err)
-          res.redirect('/')
-      })
-  console.log("this function is doing something ")
-}
-
 function deleteTask(req, res){
-  Task.find({})
-  .then(function(tasks){
-    tasks.splice(req.params.id, 1)
-    res.render('tasks/new', { title: 'Delete task', tasks})
-  })  
+  Task.findByIdAndDelete(req.params.id)
+  .then(function(){
+    res.redirect('/tasks')
+  })
+  .catch(function(err){
+    res.redirect('/')
+  })
 }
 
 
 
-//show and index questions about routing - see above 

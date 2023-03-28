@@ -28,30 +28,29 @@
           
       </select>
   </label>
-
-  <button type="submit">Add Task</button>
+  <div class="button-wrapper">
+  <button class="addBtn" type="submit">Add Task</button>
+  </div>
 </form>
-<section><% tasks.forEach(t => { %>
- 
+<section class="results"><% tasks.forEach(t => { %>
   <div>Name:</div>
   <div>
       <%=t.name%>
   </div>
   <div>Due Date:</div>
   <div>
-     <%=t.dueDate%> 
+    <%=t.dueDate%> 
   </div>
   <div>Task Type:</div>
   <div>
       <%=t.taskType%>
   </div>
-  <form action="/tasks/<%= t.id %>?_method=DELETE"
+  <form action="/tasks/<%= t._id %>?_method=DELETE"
     class="delete-form" method="POST">
-    <button type="submit">X</button>
+    <button type="submit">Delete</button>
   </form>
   <br>
   <% }) %>
 </section>
-
 
 <%- include("../partials/footer") %>

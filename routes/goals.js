@@ -7,4 +7,6 @@ router.get('/', goalCtrl.index)
 
 router.get('/', goalCtrl.new)
 
+router.delete('/', goalCtrl.delete)
+
 module.exports = router;
