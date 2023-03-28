@@ -6,12 +6,11 @@ const dailyTaskSchema = new mongoose.Schema({
 
     },
     dueDate: {
-        type: Date,
-        
+        type: Date        
     },
     taskType: {
         type: String,
-        enum: ["personal", "work", "Southwest", "Southeast", "Northeast"]
+        enum: ["Work", "Health", "Fitness", "Household", "Travel", "Shopping", "Other"]
     }
 })
 

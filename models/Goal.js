@@ -3,16 +3,14 @@ const mongoose = require("mongoose");
 const goalSchema = new mongoose.Schema({
     goalName: {
         type: String
-
     },
     dueDate: {
-        type: Date,
-        
+        type: Date     
     },
     notes: {
-      type: String,
+      type: String
     },
-    dailyTask: [dailyTaskSchema]
+    dailyTask: [{type: mongoose.Schema.Types.ObjectId, ref:'Daily-Task'}]
 })
 
 
