@@ -1,8 +1,5 @@
 const Task = require('../models/Daily-Task')
 
-
-
-
 module.exports = {
   new: newTask,
   create,
@@ -10,12 +7,9 @@ module.exports = {
   delete: deleteTask
 }
 
-
 function newTask(req, res){
   Task.find({}).then(function(tasks){
     res.render('tasks/new', {title: 'Enter a new Task', tasks})
-
-
   }) .catch(function (err) {
     console.log(err) // log the error for debugging or redirect to error page 
     res.redirect('/')
@@ -39,7 +33,6 @@ function index(req, res) {
           res.redirect('/')
       })
 }
-
 function deleteTask(req, res){
   Task.findByIdAndDelete(req.params.id)
   .then(function(){
@@ -50,12 +43,6 @@ function deleteTask(req, res){
   })
 }
 
-function deleteTask(req, res){
-  Task.find({})
-  .then(function(tasks){
-    tasks.splice(req.params.id, 1)
-    res.render('tasks/new', { title: 'Delete task', tasks})
-  })  
-}
+
 
 
