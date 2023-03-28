@@ -7,6 +7,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index')
 var taskRouter = require('./routes/task')
+var goalRouter = require('./routes/goals')
+var bulletRouter = require('./routes/bullets')
 
 var app = express()
 
@@ -30,8 +32,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
+
 app.use('/', indexRouter)
 app.use('/tasks', taskRouter)
+app.use('/goals', goalRouter)
+app.use('/bullets', bulletRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
