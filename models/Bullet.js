@@ -4,7 +4,7 @@ const bulletSchema = new mongoose.Schema({
     journal: {
         type: String
     },
-    date: {
+    currentDate: {
         type: Date       
     }    
 })

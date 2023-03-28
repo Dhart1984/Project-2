@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
     res.send()
 })
 
-router.delete('/tasks/:id', todosCtrl.delete)
+router.delete('/tasks/:id', taskCtrl.delete)
 
 module.exports = router;
 

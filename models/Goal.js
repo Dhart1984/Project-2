@@ -10,8 +10,13 @@ const goalSchema = new mongoose.Schema({
     notes: {
       type: String
     },
-    dailyTask: [{type: mongoose.Schema.Types.ObjectId, ref:'Daily-Task'}]
+    
+    goalType: {
+    type: String,
+    enum: ["Priority", "Median", "Unimportant", ]
+}
 })
+
 
 
 module.exports = mongoose.model('Goal', goalSchema)
