@@ -5,6 +5,6 @@ const bulletCtrl = require('../controllers/bullets')
 // index route
 router.get('/', bulletCtrl.index)
 
-router.get('/new', bulletCtrl.new)
+router.get('/', bulletCtrl.new)
 
 module.exports = router;

@@ -5,6 +5,7 @@ module.exports = {
   create,
   index,
   show,
+  delete: deleteBullet
 }
 
 function newBullet(req, res){
@@ -45,6 +46,13 @@ function show(req, res) {
   console.log("this function is doing something ")
 }
 
+function deleteBullet(req, res){
+  Bullet.find({})
+  .then(function(bullets){
+    bullets.splice(req.params.id, 1)
+    res.render('tasks/bullets', { title: 'Delete bullet', bullets})
+  })  
+}
 
 
 

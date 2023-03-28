@@ -45,6 +45,11 @@
   <div>
       <%=t.taskType%>
   </div>
+  <form action="/tasks/<%= t.id %>?_method=DELETE"
+    class="delete-form" method="POST">
+    <button type="submit">X</button>
+  </form>
+  <br>
   <% }) %>
 </section>
 
