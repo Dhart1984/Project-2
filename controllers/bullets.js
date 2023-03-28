@@ -1,5 +1,10 @@
 const Bullet = require('../models/Bullet');
 
+function newBullet(req, res){
+  res.render('bullets/new', {title: 'Enter a new Bullet'})
+};
+
+
 module.exports = {
   new: newBullet,
   create,
@@ -7,9 +12,6 @@ module.exports = {
   show,
 }
 
-function newBullet(req, res){
-  res.render('bullets/new', {title: 'Enter a new Bullet'})
-};
 
 function create(req, res) {
   Bullet.create(req.body).then(function (newBullet) {
