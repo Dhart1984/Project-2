@@ -9,13 +9,13 @@ router.post('/', taskCtrl.create)
 
 router.get('/', taskCtrl.index)
 
-router.get('/:id', taskCtrl.show)
+
 
 router.get('/', function (req, res, next) {
     res.send()
 })
 
-router.delete('/tasks/:id', todosCtrl.delete)
+router.delete('/:id', taskCtrl.delete)
 
 module.exports = router;
 

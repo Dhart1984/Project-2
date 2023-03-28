@@ -49,11 +49,13 @@ function show(req, res) {
 }
 
 function deleteBullet(req, res){
-  Bullet.find({})
-  .then(function(bullets){
-    bullets.splice(req.params.id, 1)
-    res.render('tasks/bullets', { title: 'Delete bullet', bullets})
-  })  
+  Bullet.findByIdAndDelete(req.params.id)
+  .then(function(){
+    res.redirect('/bullets')
+  })
+  .catch(function(err){
+    res.redirect('/')
+  })
 }
 
 
