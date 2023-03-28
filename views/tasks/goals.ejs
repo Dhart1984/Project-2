@@ -10,6 +10,7 @@
 <body>
     <h1>Got any Goals?</h1>
 
+
     <label>Name:
         <input type="text" name="taskName">
     </label>
@@ -42,17 +43,26 @@
         <div>
             <%=g.notes%>
         </div>
-        <form action="/tasks/<%= t.id %>?_method=DELETE"
-          class="delete-form" method="POST">
-          <button type="submit">X</button>
-        </form>
-        <br>
+        <form action="/goals/<%= t._id %>?_method=DELETE"
+        class="delete-form" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <br>
+      
+        
+        
+        
+        
+        
+      
         <% }) %>
       </section>
 
-</body>
-</html>
 
+
+
+
+    
 
 
 <%- include("../partials/footer") %>

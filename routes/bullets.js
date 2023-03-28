@@ -17,6 +17,8 @@ router.get('/', function (req, res, next) {
     res.send()
 })
 
+router.delete('/', bulletCtrl.delete)
+
 
 
 
