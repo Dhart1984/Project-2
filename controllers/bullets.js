@@ -1,15 +1,18 @@
 const Bullet = require('../models/Bullet');
 
+function newBullet(req, res){
+  res.render('bullets/new', {title: 'Enter a new Bullet'})
+};
+
+
 module.exports = {
   new: newBullet,
   create,
   index,
   show,
+  delete: deleteBullet
 }
 
-function newBullet(req, res){
-  res.render('bullets/new', {title: 'Enter a new Bullet'})
-};
 
 function create(req, res) {
   Bullet.create(req.body).then(function (newBullet) {
@@ -45,6 +48,13 @@ function show(req, res) {
   console.log("this function is doing something ")
 }
 
+function deleteBullet(req, res){
+  Bullet.find({})
+  .then(function(bullets){
+    bullets.splice(req.params.id, 1)
+    res.render('tasks/bullets', { title: 'Delete bullet', bullets})
+  })  
+}
 
 
 
