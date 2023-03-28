@@ -3,7 +3,7 @@ var router = express.Router();
 const taskCtrl = require('../controllers/tasks')
 
 // index route
-router.get('/new', taskCtrl.new)
+router.get('/', taskCtrl.new)
 
 router.post('/', taskCtrl.create)
 
@@ -14,6 +14,8 @@ router.get('/:id', taskCtrl.show)
 router.get('/', function (req, res, next) {
     res.send()
 })
+
+router.delete('/tasks/:id', todosCtrl.delete)
 
 module.exports = router;
 

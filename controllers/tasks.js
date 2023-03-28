@@ -1,9 +1,5 @@
 const Task = require('../models/Daily-Task')
 
-function newTask(req, res){
-  res.render('tasks/new', {title: 'Enter a new Task'})
-}
-
 
 
 module.exports = {
@@ -11,6 +7,7 @@ module.exports = {
   create,
   index,
   show,
+  delete: deleteTask
 }
 
 
@@ -53,6 +50,14 @@ function show(req, res) {
           res.redirect('/')
       })
   console.log("this function is doing something ")
+}
+
+function deleteTask(req, res){
+  Task.find({})
+  .then(function(tasks){
+    tasks.splice(req.params.id, 1)
+    res.render('tasks/new', { title: 'Delete task', tasks})
+  })  
 }
 
 

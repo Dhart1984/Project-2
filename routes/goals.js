@@ -5,6 +5,6 @@ const goalCtrl = require('../controllers/goals')
 // index route
 router.get('/', goalCtrl.index)
 
-router.get('/new', goalCtrl.new)
+router.get('/', goalCtrl.new)
 
 module.exports = router;
