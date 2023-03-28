@@ -3,7 +3,7 @@ var router = express.Router();
 const taskCtrl = require('../controllers/tasks')
 
 // index route
-router.get('/new', taskCtrl.new)
+router.get('/', taskCtrl.new)
 
 router.post('/', taskCtrl.create)
 
