@@ -1,9 +1,15 @@
 const Bullet = require('../models/Bullet');
 
-function newBullet(req, res){
-  res.render('bullets/new', {title: 'Enter a new Bullet'})
-};
 
+function newBullet(req, res){
+  Task.find({}).then(function(bullets){
+    res.render('bullets/new', {title: 'Enter a new Bullet', bullets})
+
+
+  }) .catch(function (err) {
+    console.log(err) // log the error for debugging or redirect to error page 
+    res.redirect('/')
+})}
 
 module.exports = {
   new: newBullet,
@@ -16,8 +22,8 @@ module.exports = {
 
 function create(req, res) {
   Bullet.create(req.body).then(function (newBullet) {
-      console.log(newState)
-      res.redirect('/bullets')
+      console.log(newBullet)
+      res.redirect('/bullets/new')
   })
   console.log(req.body)
 }

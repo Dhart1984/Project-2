@@ -2,6 +2,7 @@ const Task = require('../models/Daily-Task')
 
 
 
+
 module.exports = {
   new: newTask,
   create,
@@ -48,5 +49,6 @@ function deleteTask(req, res){
     res.redirect('/')
   })
 }
+
 
 
