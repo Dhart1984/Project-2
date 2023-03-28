@@ -1,12 +1,52 @@
 <%- include("../partials/header", {title}) %>
 <h1>Add Tasks</h1>
-<form action="/tasks" method="POST"></form>
+<!-- <form action="/tasks" method="POST"></form>
 <label>Tasks:
+  <input type="text" name="taskName" required>
   <button class="addBtn" type="submit">Add Task</button>
 </label>
 
-</form>
+</form> -->
 
+
+<form action="/tasks" method="POST" class="new-form">
+  <label>Name:
+      <input type="text" name="taskName">
+  </label>
+  <label>Due Date:
+      <input type="date" name="dueDate">
+  </label>
+  <label>Task Type:
+      <select name="taskType">
+          <option value="Work">Work</option>
+          <option value="Health">Health</option>
+          <option value="Fitness">Fitness</option>
+          <option value="Household">Household</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Other">Other</option>
+          
+      </select>
+  </label>
+
+  <button type="submit">Add Task</button>
+</form>
+<section><% tasks.forEach(t => { %>
+ 
+  <div>Name:</div>
+  <div>
+      <%=t.name%>
+  </div>
+  <div>Due Date:</div>
+  <div>
+     <%=t.dueDate%> 
+  </div>
+  <div>Task Type:</div>
+  <div>
+      <%=t.taskType%>
+  </div>
+  <% }) %>
+</section>
 
 
 <%- include("../partials/footer") %>
