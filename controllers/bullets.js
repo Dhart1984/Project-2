@@ -22,7 +22,7 @@ function create(req, res) {
 function index(req, res) {
   Bullet.find({})
       .then(function (bullets) {
-          res.render('bullets/index', { bullets, title: 'All Bullets' })
+          res.render('tasks/bullets', { bullets, title: 'All Bullets' })
       })
       .catch(function (err) {
           console.log(err) // log the error for debugging or redirect to error page 
@@ -31,16 +31,6 @@ function index(req, res) {
 }
 
 
-
-
-
-
-
-
-
-// function index (req,res){
-//   res.render('bullets/index', {title: 'All Bullets'})
-// }
 
 
 function show(req, res) {

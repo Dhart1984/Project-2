@@ -4,13 +4,7 @@ function newTask(req, res){
   res.render('tasks/new', {title: 'Enter a new Task'})
 }
 
-<<<<<<< HEAD
 
-=======
-function index (req,res){
-  res.render('index', {title: 'Welcome to TaskMastermind'})
-}
->>>>>>> e8ef7d24f83a140dc14a071dbe94b393e02e197f
 
 module.exports = {
   new: newTask,
@@ -26,7 +20,7 @@ function newTask(req, res){
 }
 
 function create(req, res) {
-  Daily-Task.create(req.body).then(function (newTask) {
+  Task.create(req.body).then(function (newTask) {
       console.log(newTasks)
       res.redirect('/tasks')
   })
@@ -34,9 +28,9 @@ function create(req, res) {
 }
 
 function index(req, res) {
-  Daily-Task.find({})
+  Task.find({})
       .then(function (tasks) {
-          res.render('tasks/index', { tasks, title: 'All Tasks' })
+          res.render('index', { tasks, title: 'All Tasks' })
       })
       .catch(function (err) {
           console.log(err) // log the error for debugging or redirect to error page 
@@ -45,7 +39,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Daily-Task.findById(req.params.id).then(
+  Task.findById(req.params.id).then(
       function (task) {
           res.render('tasks/show', { task, title: 'Task Details' })
       })
