@@ -1,5 +1,5 @@
 
-Personal Planner MVP
+# Personal Planner MVP
 1. Daily Task List
 2. Bullet Journaling
 3. Goals
