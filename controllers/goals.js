@@ -6,6 +6,7 @@ module.exports = {
   create,
   index,
   show,
+  delete: deleteGoal
 }
 
 function newGoal(req, res){
@@ -43,6 +44,14 @@ function show(req, res) {
           res.redirect('/')
       })
   console.log("this function is doing something ")
+}
+
+function deleteGoal(req, res){
+  Goal.find({})
+  .then(function(goals){
+    goals.splice(req.params.id, 1)
+    res.render('tasks/goals', { title: 'Delete goal', goals})
+  })  
 }
 
 
