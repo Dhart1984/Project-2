@@ -4,9 +4,7 @@ function newTask(req, res){
   res.render('tasks/new', {title: 'Enter a new Task'})
 }
 
-function index (req,res){
-  res.render('tasks/new', {title: 'All tasks'})
-}
+
 
 module.exports = {
   new: newTask,
@@ -23,7 +21,7 @@ function newTask(req, res){
 
 function create(req, res) {
   Daily-Task.create(req.body).then(function (newTask) {
-      console.log(newState)
+      console.log(newTasks)
       res.redirect('/tasks')
   })
   console.log(req.body)
@@ -31,7 +29,7 @@ function create(req, res) {
 
 function index(req, res) {
   Daily-Task.find({})
-      .then(function (task) {
+      .then(function (tasks) {
           res.render('tasks/index', { tasks, title: 'All Tasks' })
       })
       .catch(function (err) {
