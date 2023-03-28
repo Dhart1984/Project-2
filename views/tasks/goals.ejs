@@ -9,9 +9,11 @@
 </head>
 <body>
     <h1>Got any Goals?</h1>
-</body>
-</html>
-
-
+    <form action="/goals/<%= t._id %>?_method=DELETE"
+        class="delete-form" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <br>
+      
 
 <%- include("../partials/footer") %>

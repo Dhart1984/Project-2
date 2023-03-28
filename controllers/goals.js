@@ -47,11 +47,13 @@ function show(req, res) {
 }
 
 function deleteGoal(req, res){
-  Goal.find({})
-  .then(function(goals){
-    goals.splice(req.params.id, 1)
-    res.render('tasks/goals', { title: 'Delete goal', goals})
-  })  
+  Goal.findByIdAndDelete(req.params.id)
+  .then(function(){
+    res.redirect('/goals')
+  })
+  .catch(function(err){
+    res.redirect('/')
+  })
 }
 
 
