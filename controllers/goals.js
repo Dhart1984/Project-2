@@ -6,6 +6,7 @@ module.exports = {
   create,
   index,
   show,
+  delete: deleteGoal
 }
 
 function newGoal(req, res){
@@ -25,7 +26,7 @@ function create(req, res) {
 function index(req, res) {
   Goal.find({})
       .then(function (goals) {
-          res.render('goals/index', { goals, title: 'All Goals' })
+          res.render('tasks/goals', { goals, title: 'All Goals' })
       })
       .catch(function (err) {
           console.log(err) // log the error for debugging or redirect to error page 
@@ -36,13 +37,21 @@ function index(req, res) {
 function show(req, res) {
   Goal.findById(req.params.id).then(
       function (goal) {
-          res.render('goals/show', { goal, title: 'State Details' })
+          res.render('/', { goal, title: 'State Details' })
       })
       .catch(function (err) {
           console.log(err)
           res.redirect('/')
       })
   console.log("this function is doing something ")
+}
+
+function deleteGoal(req, res){
+  Goal.find({})
+  .then(function(goals){
+    goals.splice(req.params.id, 1)
+    res.render('tasks/goals', { title: 'Delete goal', goals})
+  })  
 }
 
 

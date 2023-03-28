@@ -5,7 +5,7 @@ const bulletCtrl = require('../controllers/bullets')
 // index route
 
 
-router.get('/new', bulletCtrl.new)
+router.get('/', bulletCtrl.new)
 
 router.post('/', bulletCtrl.create)
 
