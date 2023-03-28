@@ -4,7 +4,13 @@ function newTask(req, res){
   res.render('tasks/new', {title: 'Enter a new Task'})
 }
 
+<<<<<<< HEAD
 
+=======
+function index (req,res){
+  res.render('index', {title: 'Welcome to TaskMastermind'})
+}
+>>>>>>> e8ef7d24f83a140dc14a071dbe94b393e02e197f
 
 module.exports = {
   new: newTask,

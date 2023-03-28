@@ -8,10 +8,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index')
 var taskRouter = require('./routes/tasks')
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 var goalRouter = require('./routes/goals')
 var bulletRouter = require('./routes/bullets')
 >>>>>>> 7d53283ab3ccf098fd549a7f661c6be2ae3c7d7c
+=======
+>>>>>>> e8ef7d24f83a140dc14a071dbe94b393e02e197f
 
 var app = express()
 
