@@ -7,15 +7,15 @@ const goalSchema = new mongoose.Schema({
     dueDate: {
         type: Date     
     },
-    notes: {
+    notes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Bullet'
-    },
+    }],
     goalType: {
     type: String,
     enum: ["Priority", "Median", "Unimportant", ]
 }
-})
+},{timestamps: true})
 
 
 

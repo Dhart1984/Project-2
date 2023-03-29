@@ -1,0 +1,47 @@
+<%- include("../partials/header", {title}) %>
+<section class="show-page">
+    <div>Goal:</div>
+    <div>
+        <%=goal.goalName%>
+    </div>
+    <div>Due Date:</div>
+    <div>
+        <%=goal.dueDate%>
+    </div>
+    <div>Goal Type: </div>
+    <div>
+        <%=goal.goalType%>
+    </div>
+    <div>Notes:</div>
+    <div>
+        <ul>
+        <% if (goal.notes) { %>
+            <% goal.notes.forEach(b=>{%>
+                    <li><%=b.journal%> || <%=b.currentDate.Date.now()%> </li>
+                <%})%>
+                
+            <% } else { %>
+                <li>No notes available.</li>
+            <% } %>
+            </ul>
+        </div>
+    
+</section>
+<section>
+    <div>Add Notes to <%=goal.goalName%></div>
+    <form method="POST" action="/goals/<%=goal._id%>/show">
+        <label>Add Notes:
+            <input type="text" name="journal">
+        </label>
+        <label>Date:
+          <input type="date" name="currentDate">
+      </label>
+        <div class="button-wrapper">
+          <button class="addBtn" type="submit">Add Note</button>
+          </div>
+    </form>
+     
+           
+</section>
+
+<%- include("../partials/footer") %>
