@@ -7,5 +7,5 @@ const bulletSchema = new mongoose.Schema({
     currentDate: {
         type: Date       
     }    
-})
+},{timestamps: true})
 module.exports = mongoose.model('Bullet', bulletSchema)

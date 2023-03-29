@@ -16,9 +16,7 @@
             <option value="Unimportant">Unimportant</option>
         </select>
     </label>
-    <label>Notes:
-        <input type="text" name="notes">
-    </label>
+    
     <div class="button-wrapper">
         <button class="addBtn" type="submit">Add Goal</button>
         </div>
@@ -26,7 +24,7 @@
     <section class="results"><% goals.forEach(g => { %>
         <div>Goal Name:</div>
         <div>
-            <%=g.goalName%>
+            <a class="btn-detail" href="/goals/<%=g._id%>/show"><%=g.goalName%></a>
         </div>
         <div>Due Date:</div>
         <div>
@@ -39,7 +37,10 @@
         <div>Notes:</div>
         <ul>
             <% if (g.notes) { %>
-                <%=g.notes%>
+                <% g.notes.forEach(b=>{%>
+                    <li><%=b.journal%> || <%=b.currentDate.Date.now()%> </li>
+                <%})%>
+                
             <% } else { %>
                 <li>No notes available.</li>
             <% } %>

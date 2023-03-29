@@ -12,7 +12,7 @@ const dailyTaskSchema = new mongoose.Schema({
         type: String,
         enum: ["Work", "Health", "Fitness", "Household", "Travel", "Shopping", "Other"]
     }
-})
+},{timestamps: true})
 
 
 module.exports = mongoose.model('Daily-Task', dailyTaskSchema)
