@@ -13,4 +13,6 @@ router.post('/', goalCtrl.create)
 
 router.delete('/:id', goalCtrl.delete)
 
+router.post('/:id/show', goalCtrl.newNote)
+
 module.exports = router;
