@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Yanone+Kaffeesatz&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Roboto+Mono&family=Yanone+Kaffeesatz&display=swap');
 
 body {
   padding: 50px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 20px;
 }
 

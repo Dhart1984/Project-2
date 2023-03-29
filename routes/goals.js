@@ -7,6 +7,8 @@ router.get('/', goalCtrl.index)
 
 router.get('/', goalCtrl.new)
 
-router.delete('/', goalCtrl.delete)
+router.post('/', goalCtrl.create)
+
+router.delete('/:id', goalCtrl.delete)
 
 module.exports = router;
