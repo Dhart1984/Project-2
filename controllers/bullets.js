@@ -30,7 +30,7 @@ function create(req, res) {
 function index(req, res) {
   Bullet.find({})
       .then(function (bullets) {
-          res.render('tasks/bullets', { bullets, title: 'All Bullets' })
+          res.render('tasks/bullets', { bullets, title: 'Journal' })
       })
       .catch(function (err) {
           console.log(err) // log the error for debugging or redirect to error page 

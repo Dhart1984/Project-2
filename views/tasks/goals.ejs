@@ -37,9 +37,13 @@
             <%=g.goalType%>
         </div>
         <div>Notes:</div>
-        <div>
-            <%=g.notes%>
-        </div>
+        <ul>
+            <% if (g.notes) { %>
+                <%=g.notes%>
+            <% } else { %>
+                <li>No notes available.</li>
+            <% } %>
+            </ul>
         <form action="/goals/<%= g._id %>?_method=DELETE"
         class="delete-form" method="POST">
         <button type="submit">Delete</button>

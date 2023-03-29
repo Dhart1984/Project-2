@@ -1,7 +1,7 @@
 
 
 function index (req,res){
-  res.render('index', {title: 'Welcome to Task Mastermind'})
+  res.render('index', {title: 'TaskMastermind'})
 }
 
 module.exports = {
