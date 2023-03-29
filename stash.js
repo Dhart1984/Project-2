@@ -11,3 +11,16 @@
     // }
     
     // router.get('/:id', taskCtrl.show)
+
+    <div>
+        <ul>
+        <% if(goal.notes) { %>
+            <% goal.notes.forEach(b=>{%>
+                    <li><%=b.journal%> || <%=b.currentDate.Date.now()%> </li>
+                <%})%>
+                
+            <% } else { %>
+                <li>No notes available.</li>
+            <% } %>
+            </ul>
+        </div>
