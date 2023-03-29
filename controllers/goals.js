@@ -9,8 +9,11 @@ module.exports = {
 }
 
 function newGoal(req, res){
+  Goal.find({})
+  .then(function(goals){
+    res.render('tasks/goals', {title: 'Enter a new Goal', goals})
+  })
   console.log("check to see if working")
-  res.render('goals/new', {title: 'Enter a new Goal'})
 }
 
 function create(req, res) {

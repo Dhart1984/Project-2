@@ -8,9 +8,9 @@ const goalSchema = new mongoose.Schema({
         type: Date     
     },
     notes: {
-      type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bullet'
     },
-    
     goalType: {
     type: String,
     enum: ["Priority", "Median", "Unimportant", ]
