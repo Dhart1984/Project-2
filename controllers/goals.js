@@ -62,22 +62,18 @@ function show(req, res){
 }
 
 function newNote(req, res) {
-  const notesId = req.body.notes // ObjectId
   const newId = req.params.id
-
+  
   Goal.findById(newId)
   .then(function(goal){
-    console.log(goal.notes)
-    goal.notes.push(notesId)
+    let bullet = Bullet.create(req.body)
+    goal.notes.push(bullet._id)
+    return goal.save()
   })
-  .then(function(bullet){
-    Bullet.create(req.body)
-    console.log(bullet)
-  return bullet.save()
-}).then(function(){
-  res.redirect(`/goals/${req.params.id}/show`)
-}).catch(function(err){
-  console.log(err)
-  res.redirect('/')
-})
+  .then(function(){
+    res.redirect(`/goals/${req.params.id}/show`)
+  }).catch(function(err){
+    console.log(err)
+    res.redirect('/')
+  })
 }

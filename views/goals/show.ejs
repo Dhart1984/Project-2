@@ -13,18 +13,7 @@
         <%=goal.goalType%>
     </div>
     <div>Notes:</div>
-    <div>
-        <ul>
-        <% if (goal.notes) { %>
-            <% goal.notes.forEach(b=>{%>
-                    <li><%=b.journal%> || <%=b.currentDate.Date.now()%> </li>
-                <%})%>
-                
-            <% } else { %>
-                <li>No notes available.</li>
-            <% } %>
-            </ul>
-        </div>
+    
     
 </section>
 <section>
@@ -39,9 +28,7 @@
         <div class="button-wrapper">
           <button class="addBtn" type="submit">Add Note</button>
           </div>
-    </form>
-     
-           
+    </form>           
 </section>
 
 <%- include("../partials/footer") %>
