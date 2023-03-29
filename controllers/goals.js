@@ -6,7 +6,8 @@ module.exports = {
   create,
   index,
   delete: deleteGoal,
-  show
+  show,
+  newNote
 }
 
 function newGoal(req, res){
@@ -58,4 +59,25 @@ function show(req, res){
   .catch(function(err){
     res.redirect('/')
   })
+}
+
+function newNote(req, res) {
+  const notesId = req.body.notes // ObjectId
+  const newId = req.params.id
+
+  Goal.findById(newId)
+  .then(function(goal){
+    console.log(goal.notes)
+    goal.notes.push(notesId)
+  })
+  .then(function(bullet){
+    Bullet.create(req.body)
+    console.log(bullet)
+  return bullet.save()
+}).then(function(){
+  res.redirect(`/goals/${req.params.id}/show`)
+}).catch(function(err){
+  console.log(err)
+  res.redirect('/')
+})
 }
