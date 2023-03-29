@@ -1,0 +1,41 @@
+<%- include("../partials/header", {title}) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Got any side notes?</h1>
+  <form action="/bullets" method="POST" class="new-form">
+    <label>Add Notes:
+        <input type="text" name="journal">
+    </label>
+    <label>Date:
+      <input type="date" name="currentDate">
+  </label>
+    <div class="button-wrapper">
+      <button class="addBtn" type="submit">Add Note</button>
+      </div>
+    </form>
+    <section class="results"><% bullets.forEach(b => { %>
+      <div>Journal:</div>
+      <div>
+          <%=b.journal%>
+      </div>
+      <div>Date:</div>
+      <div>
+          <%=b.currentDate%>
+      </div>
+    <form action="/bullets/<%= b._id %>?_method=DELETE"
+      class="delete-form" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+  </section>
+  <% }) %>
+</body>
+</html>
+
+
+<%- include("../partials/footer") %>

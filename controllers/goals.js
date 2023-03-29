@@ -5,7 +5,6 @@ module.exports = {
   new: newGoal,
   create,
   index,
-  show,
   delete: deleteGoal
 }
 
@@ -34,18 +33,6 @@ function index(req, res) {
       })
 }
 
-function show(req, res) {
-  Goal.findById(req.params.id).then(
-      function (goal) {
-          res.render('/', { goal, title: 'Goal Details' })
-      })
-      .catch(function (err) {
-          console.log(err)
-          res.redirect('/')
-      })
-  console.log("this function is doing something ")
-}
-
 function deleteGoal(req, res){
   Goal.findByIdAndDelete(req.params.id)
   .then(function(){
@@ -55,5 +42,3 @@ function deleteGoal(req, res){
     res.redirect('/')
   })
 }
-
-
