@@ -1,9 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Roboto+Mono&family=Yanone+Kaffeesatz&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 body {
   padding: 50px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(55, 182, 255, 0.554) 10%, transparent 11%),radial-gradient(circle at bottom left, rgba(55, 182, 255, 0.554) 5%, transparent 6%),radial-gradient(circle at bottom right, rgba(55, 182, 255, 0.554) 5%, transparent 6%),radial-gradient(circle at top left, rgba(55, 182, 255, 0.554) 5%, transparent 6%),radial-gradient(circle at top right, rgba(55, 182, 255, 0.554) 5%, transparent 6%);
+  min-height: 100vh;
+  background-size: 3em 3em;
+  background-color: #ffffff;
+  opacity: 1
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 a {
@@ -14,11 +26,16 @@ h1, h2{
   text-align: center;
 }
 
-.cta-button {
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* .cta-button {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .addBtn {
   align-items: center;
@@ -56,43 +73,12 @@ h1, h2{
 
 .addBtn:hover {
   background: #F6F9FE;
-  color: #174ea6;
-}
-
-.addBtn:active {
-  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
-  outline: none;
-}
-
-.addBtn:focus {
-  outline: none;
-  border: 2px solid #4285f4;
-}
-
-.addBtn:not(:disabled) {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-}
-
-.addBtn:not(:disabled):hover {
-  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
-}
-
-.addBtn:not(:disabled):focus {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-}
-
-.addBtn:not(:disabled):active {
-  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-}
-
-.addBtn:disabled {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  color: rgba(55, 182, 255, 0.554);
 }
 
 .button-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .new-form {
@@ -106,56 +92,70 @@ h1, h2{
 
 .new-form label {
   display: block;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.new-form input[type="text"], .new-form input[type="date"], .new-form select {
+.new-form input[type="text"],
+.new-form input[type="date"],
+.new-form select {
   width: 100%;
-  padding: 5px 10px;
-  font-size: 16px;
+  padding: 0.5rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 3px;
+  margin-bottom: 1rem;
 }
 
-.new-form input[type="text"]:focus, .new-form input[type="date"]:focus, .new-form select:focus {
+.new-form input[type="text"]:focus,
+.new-form input[type="date"]:focus,
+.new-form select:focus {
   outline: none;
-  border-color: #66afe9;
-  box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
-}
-
-.new-form input[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #3498db;
-  color: #fff;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.new-form input[type="submit"]:hover {
-  background-color: #2980b9;
+  border-color: #1976d2;
+  box-shadow: 0 0 3px rgba(25, 118, 210, 0.3);
 }
 
 .results {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
 }
 
-.results div {
-  border: 1px solid #ccc;
-  padding: 30px;
+.task {
+  background-color: rgba(55, 182, 255, 0.554);
   border-radius: 5px;
-  background-color: #f2f2f2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
 }
 
-.results div:nth-child(odd) {
+.task:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.task-title {
+  font-size: 1.5rem;
   font-weight: bold;
-  background-color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.task-info {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.delete-form button {
+  background-color: #f44336;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-form button:hover {
+  background-color: #d32f2f;
 }
 
 nav {
@@ -214,6 +214,7 @@ p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 50px auto;
+  color: rgb(55,181,255);
 }
 
 .box section {
@@ -232,7 +233,7 @@ p {
   color: #333;
 }
 
-.cta-button {
+/* .cta-button {
   display: inline-block;
   background-color: rgb(55,181,255);
   color: #ffffff;
@@ -242,8 +243,48 @@ p {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+} */
+
+/* .cta-button:hover {
+  background-color: rgb(35,161,235);
+} */
+
+i {
+  font-size: 24px;
+  margin-right: 10px;
 }
 
-.cta-button:hover {
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
   background-color: rgb(35,161,235);
+  color: #fff;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
 }
+
+.main-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.addTask {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.addTask h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
