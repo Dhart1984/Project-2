@@ -41,10 +41,16 @@
   <div>
       <%=t.taskType%>
   </div>
+
+  <% if (user?._id.equals(t.user)) { %>
+
   <form action="/tasks/<%= t._id %>?_method=DELETE"
     class="delete-form" method="POST">
     <button type="submit">Delete</button>
   </form>
+
+  <% } %>
+
   <br>
   <% }) %>
 </section>

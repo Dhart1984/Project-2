@@ -5,6 +5,8 @@ const passport = require('passport');
 
 const homeCtrl = require('../controllers/home')
 
+
+
 /* GET users listing. */
 router.get('/home', homeCtrl.index)
 

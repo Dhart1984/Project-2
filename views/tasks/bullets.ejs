@@ -37,10 +37,17 @@
       <div>
           <%=b.currentDate%>
       </div>
+    
+      <% if (user?._id.equals(b.user)) { %>
+
     <form action="/bullets/<%= b._id %>?_method=DELETE"
       class="delete-form" method="POST">
       <button type="submit">Delete</button>
     </form>
+    <% } %>
+
+
+
   </section>
   <% }) %>
 </body>
