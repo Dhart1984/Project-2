@@ -12,15 +12,7 @@
     
     // router.get('/:id', taskCtrl.show)
 
-    <div>
-        <ul>
-        <% if(goal.notes) { %>
-            <% goal.notes.forEach(b=>{%>
-                    <li><%=b.journal%> || <%=b.currentDate.Date.now()%> </li>
-                <%})%>
-                
-            <% } else { %>
-                <li>No notes available.</li>
-            <% } %>
-            </ul>
-        </div>
+    let bullet = Bullet.create(req.body)
+    console.log(bullet.journal + " is the bullet journal here")
+    goal.notes.push(bullet._id)
+    return goal.save()
