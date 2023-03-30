@@ -51,8 +51,11 @@ function deleteGoal(req, res){
   })
 }
 function show(req, res){
+  
   Goal.findById(req.params.id)
+  .populate('notes')
   .then(function(goal){
+    console.log(goal)
     res.render('goals/show', {title: "Goal details", goal})
   })
   .catch(function(err){
@@ -62,15 +65,14 @@ function show(req, res){
 
 function newNote(req, res) {
   const newId = req.params.id
-  let currentGoal
-  
+   let currentGoal
   Goal.findById(newId)
   .then(function(goal){
     currentGoal = goal
-  })
-  Bullet.create(req.body)
+    return Bullet.create(req.body)
+  })  
   .then(function(bullet){
-    currentGoal.notes.push(bullet._id)
+    currentGoal.notes.push(bullet)
     return currentGoal.save()
   })
   .then(function(){
