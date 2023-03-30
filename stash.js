@@ -16,3 +16,17 @@
     console.log(bullet.journal + " is the bullet journal here")
     goal.notes.push(bullet._id)
     return goal.save()
+
+    <section class="results"><% tasks.forEach(t => { %>
+        <div>Name:</div>
+        <div>
+            <%=t.taskName%>
+        </div>
+        <div>Due Date:</div>
+        <div>
+        <%=t.dueDate%> 
+        </div>
+        <div>Task Type:</div>
+        <div>
+            <%=t.taskType%>
+        </div>

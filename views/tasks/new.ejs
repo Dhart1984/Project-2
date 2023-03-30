@@ -26,8 +26,10 @@
   <button class="addBtn" type="submit">Add Task</button>
   </div>
 </div>
-
 </form>
+<%}else { %>
+  <h2><a href="/auth/google">Login</a> to Add a Task</h2>
+<%} %>
 <section class="results">
   <% tasks.forEach(t => { %>
     <article class="task">
@@ -39,33 +41,15 @@
         <button type="submit">Delete</button>
       </form>
     </article>
-<%}else { %>
-  <h2>Please <a href="/auth/google">Login</a> to Add a Task</h2>
-<%} %>
-<section class="results"><% tasks.forEach(t => { %>
-  <div>Name:</div>
-  <div>
-      <%=t.taskName%>
-  </div>
-  <div>Due Date:</div>
-  <div>
-    <%=t.dueDate%> 
-  </div>
-  <div>Task Type:</div>
-  <div>
-      <%=t.taskType%>
-  </div>
-
   <% if (user?._id.equals(t.user)) { %>
-
   <form action="/tasks/<%= t._id %>?_method=DELETE"
     class="delete-form" method="POST">
     <button type="submit">Delete</button>
   </form>
   <% } %>
   <br>
-  <% }) %>
 </section>
+<% }) %>
 </main>
 
 <%- include("../partials/footer") %>
