@@ -1,17 +1,19 @@
 var express = require('express');
 var router = express.Router();
 const goalCtrl = require('../controllers/goals')
+const ensureLoggedIn = require('../config/ensureLoggedIn');
+
 
 // index route
 router.get('/', goalCtrl.index)
 
-router.get('/', goalCtrl.new)
+router.get('/',ensureLoggedIn, goalCtrl.new)
 
-router.get('/:id/show', goalCtrl.show)
+router.get('/:id/show',ensureLoggedIn, goalCtrl.show)
 
-router.post('/', goalCtrl.create)
+router.post('/',ensureLoggedIn, goalCtrl.create)
 
-router.delete('/:id', goalCtrl.delete)
+router.delete('/:id',ensureLoggedIn, goalCtrl.delete)
 
 router.post('/:id/show', goalCtrl.newNote)
 

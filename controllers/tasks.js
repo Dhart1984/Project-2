@@ -16,6 +16,10 @@ function newTask(req, res){
 })}
 
 function create(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+
   Task.create(req.body).then(function (newTask) {
       // console.log(newTasks)
       res.redirect('/tasks')
@@ -44,5 +48,5 @@ function deleteTask(req, res){
 }
 
 
-
+//req.user.id
 

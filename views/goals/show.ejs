@@ -13,7 +13,18 @@
         <%=goal.goalType%>
     </div>
     <div>Notes:</div>
-    
+    <div>
+        <ul>
+        <% if(goal.notes.length) { %>
+            <% goal.notes.forEach(b=>{%>
+                    <li><%=b.journal%> || <%=b.currentDate%> </li>
+                <%})%>
+                
+            <% } else { %>
+                <li>No notes available.</li>
+            <% } %>
+            </ul>
+    </div>
     
 </section>
 <section>

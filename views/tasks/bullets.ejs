@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1>Got any side notes?</h1>
+  <% if (user) { %>
   <form action="/bullets" method="POST" class="new-form">
     <label>Add Notes:
         <input type="text" name="journal">
@@ -19,6 +20,14 @@
       <button class="addBtn" type="submit">Add Note</button>
       </div>
     </form>
+
+    <%}else { %>
+      <h2>Please <a href="/auth/google">Login</a> to Add a to Journal</h2>
+<%} %>
+
+
+
+
     <section class="results"><% bullets.forEach(b => { %>
       <div>Journal:</div>
       <div>
@@ -28,10 +37,17 @@
       <div>
           <%=b.currentDate%>
       </div>
+    
+      <% if (user?._id.equals(b.user)) { %>
+
     <form action="/bullets/<%= b._id %>?_method=DELETE"
       class="delete-form" method="POST">
       <button type="submit">Delete</button>
     </form>
+    <% } %>
+
+
+
   </section>
   <% }) %>
 </body>

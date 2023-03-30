@@ -11,8 +11,17 @@ const dailyTaskSchema = new mongoose.Schema({
     taskType: {
         type: String,
         enum: ["Work", "Health", "Fitness", "Household", "Travel", "Shopping", "Other"]
+    } ,user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
+      userName: String,
+      userAvatar: String
     }
-},{timestamps: true})
+,{
+    timestamps: true
+})
 
 
 module.exports = mongoose.model('Daily-Task', dailyTaskSchema)

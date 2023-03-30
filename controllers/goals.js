@@ -19,9 +19,13 @@ function newGoal(req, res){
 }
 
 function create(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+
   Goal.create(req.body)
    .then(function(){
-      res.redirect('/goals/show')
+      res.redirect('/goals')
      })
      .catch(function (err) {
       console.log(err) 
@@ -29,7 +33,6 @@ function create(req, res) {
   }) 
   
 }
-
 
 function index(req, res) {
   Goal.find({})
@@ -52,8 +55,11 @@ function deleteGoal(req, res){
   })
 }
 function show(req, res){
+  
   Goal.findById(req.params.id)
+  .populate('notes')
   .then(function(goal){
+    console.log(goal)
     res.render('goals/show', {title: "Goal details", goal})
   })
   .catch(function(err){
@@ -63,12 +69,15 @@ function show(req, res){
 
 function newNote(req, res) {
   const newId = req.params.id
-  
+   let currentGoal
   Goal.findById(newId)
   .then(function(goal){
-    let bullet = Bullet.create(req.body)
-    goal.notes.push(bullet._id)
-    return goal.save()
+    currentGoal = goal
+    return Bullet.create(req.body)
+  })  
+  .then(function(bullet){
+    currentGoal.notes.push(bullet)
+    return currentGoal.save()
   })
   .then(function(){
     res.redirect(`/goals/${req.params.id}/show`)
