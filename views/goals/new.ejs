@@ -34,6 +34,19 @@
         <div>
             <%=g.goalType%>
         </div>
+        <div>Notes:</div>
+    <div>
+        <ul>
+        <% if(g.notes.length) { %>
+            <% g.notes.forEach(b=>{%>
+                    <li><%=b.journal%> || <%=b.currentDate%> </li>
+                <%})%>
+                
+            <% } else { %>
+                <li>No notes available.</li>
+            <% } %>
+            </ul>
+    </div>
         <form action="/goals/<%= g._id %>?_method=DELETE"
         class="delete-form" method="POST">
         <button type="submit">Delete</button>
