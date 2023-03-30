@@ -32,10 +32,18 @@
 <%} %>
 <section class="results">
   <% tasks.forEach(t => { %>
+    <%let now = new Date()%>
     <article class="task">
       <h3 class="task-title"><%=t.taskName%></h3>
       <p class="task-info">Due Date: <%=t.dueDate%></p>
       <p class="task-info">Task Type: <%=t.taskType%></p>
+      <% if(t.dueDate){ %>
+        <% if((t.dueDate - now)>0){ %>
+          <p class="task-info">This task has <%=parseInt((t.dueDate - now)/ (1000 * 3600 * 24))%> days more</p>
+        <%}else { %>
+          <p class="task-info">This task has passed the due date.</p>
+        <%} %>
+      <%} %>
       <form action="/tasks/<%= t._id %>?_method=DELETE"
         class="delete-form" method="POST">
         <button type="submit">Delete</button>
