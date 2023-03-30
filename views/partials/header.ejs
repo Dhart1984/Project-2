@@ -11,7 +11,16 @@
     <nav class="nav-list">
         <img src="/images/logo.png" alt="Logo" class="logo">
         <a href="/">Home</a>
+
+        <% if (user) { %>
+
         <a href="/tasks">Tasks</a>
         <a href="/goals">Goals</a>
         <a href="/bullets">Journal</a>
+
+        <%}else { %>
+            <h2>Please <a href="/auth/google">Login</a></h2>
+    <%} %>
+    
+
     </nav>

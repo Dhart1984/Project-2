@@ -14,8 +14,17 @@ const goalSchema = new mongoose.Schema({
     goalType: {
     type: String,
     enum: ["Priority", "Median", "Unimportant", ]
+}, user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
 }
-},{timestamps: true})
+,{
+    timestamps: true
+})
 
 
 

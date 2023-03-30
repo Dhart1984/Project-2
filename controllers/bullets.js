@@ -20,6 +20,10 @@ module.exports = {
 
 
 function create(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+
   Bullet.create(req.body).then(function (newBullet) {
       console.log(newBullet)
       res.redirect('/bullets')

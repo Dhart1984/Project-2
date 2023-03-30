@@ -2,6 +2,8 @@
     <title>Goals</title>
 
     <h1>Got any Goals?</h1>
+    <% if (user) { %>
+
     <form action="/goals" method="POST" class="new-form">
     <label>Name:
         <input type="text" name="goalName">
@@ -21,6 +23,10 @@
         <button class="addBtn" type="submit">Add Goal</button>
         </div>
     </form>
+    <%}else { %>
+        <h2>Please <a href="/auth/google">Login</a> to Add a Movie</h2>
+<%} %>
+
     <section class="results"><% goals.forEach(g => { %>
         <div>Goal Name:</div>
         <div>
