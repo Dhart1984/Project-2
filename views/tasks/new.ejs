@@ -1,4 +1,6 @@
 <%- include("../partials/header", {title}) %>
+<main class="main-container">
+  <div class="addTask">
 <h1>Add Tasks</h1>
 
 <% if (user) { %>
@@ -18,13 +20,25 @@
           <option value="Travel">Travel</option>
           <option value="Shopping">Shopping</option>
           <option value="Other">Other</option>
-          
       </select>
   </label>
   <div class="button-wrapper">
   <button class="addBtn" type="submit">Add Task</button>
   </div>
+</div>
+
 </form>
+<section class="results">
+  <% tasks.forEach(t => { %>
+    <article class="task">
+      <h3 class="task-title"><%=t.taskName%></h3>
+      <p class="task-info">Due Date: <%=t.dueDate%></p>
+      <p class="task-info">Task Type: <%=t.taskType%></p>
+      <form action="/tasks/<%= t._id %>?_method=DELETE"
+        class="delete-form" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </article>
 <%}else { %>
   <h2>Please <a href="/auth/google">Login</a> to Add a Task</h2>
 <%} %>
@@ -48,11 +62,10 @@
     class="delete-form" method="POST">
     <button type="submit">Delete</button>
   </form>
-
   <% } %>
-
   <br>
   <% }) %>
 </section>
+</main>
 
 <%- include("../partials/footer") %>
