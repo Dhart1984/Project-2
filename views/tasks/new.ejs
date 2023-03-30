@@ -1,5 +1,7 @@
 <%- include("../partials/header", {title}) %>
 <h1>Add Tasks</h1>
+
+<% if (user) { %>
 <form action="/tasks" method="POST" class="new-form">
   <label>Name:
       <input type="text" name="taskName">
@@ -23,6 +25,9 @@
   <button class="addBtn" type="submit">Add Task</button>
   </div>
 </form>
+<%}else { %>
+  <h2>Please <a href="/auth/google">Login</a> to Add a Task</h2>
+<%} %>
 <section class="results"><% tasks.forEach(t => { %>
   <div>Name:</div>
   <div>
@@ -36,10 +41,16 @@
   <div>
       <%=t.taskType%>
   </div>
+
+  <% if (user?._id.equals(t.user)) { %>
+
   <form action="/tasks/<%= t._id %>?_method=DELETE"
     class="delete-form" method="POST">
     <button type="submit">Delete</button>
   </form>
+
+  <% } %>
+
   <br>
   <% }) %>
 </section>
