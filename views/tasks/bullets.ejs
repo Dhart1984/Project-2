@@ -1,12 +1,5 @@
 <%- include("../partials/header", {title}) %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+<div class="bulletpage">
   <h1>Got any side notes?</h1>
   <% if (user) { %>
   <form action="/bullets" method="POST" class="new-form">
@@ -18,14 +11,10 @@
   </label>
     <div class="button-wrapper">
       <button class="addBtn" type="submit">Add Note</button>
-    </div>
-  </form>
-
-  <%}else { %>
-      <h2>Please <a href="/auth/google">Login</a> to add a Journal</h2>
-  <%} %>
-
-  <section class="results"><% bullets.forEach(b => { %>
+      </div>
+    </form>
+    <section class="results2">
+      <% bullets.forEach(b => { %>
       <div>Journal:</div>
       <div>
           <%=b.journal%>
@@ -34,21 +23,14 @@
       <div>
           <%=b.currentDate%>
       </div>
-    
-      <% if (user?._id.equals(b.user)) { %>
-
     <form action="/bullets/<%= b._id %>?_method=DELETE"
       class="delete-form" method="POST">
       <button type="submit">Delete</button>
     </form>
-    <% } %>
-
-
-
-  </section>
-  <% }) %>
-</body>
-</html>
-
-
+  </div>
+<% }) %>
+</section>
+    <%}else { %>
+      <h2>Please <a href="/auth/google">Login</a> to Add a to Journal</h2>
+<%} %>
 <%- include("../partials/footer") %>
