@@ -18,17 +18,14 @@
   </label>
     <div class="button-wrapper">
       <button class="addBtn" type="submit">Add Note</button>
-      </div>
-    </form>
+    </div>
+  </form>
 
-    <%}else { %>
-      <h2>Please <a href="/auth/google">Login</a> to Add a to Journal</h2>
-<%} %>
+  <%}else { %>
+      <h2>Please <a href="/auth/google">Login</a> to add a Journal</h2>
+  <%} %>
 
-
-
-
-    <section class="results"><% bullets.forEach(b => { %>
+  <section class="results"><% bullets.forEach(b => { %>
       <div>Journal:</div>
       <div>
           <%=b.journal%>

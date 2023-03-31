@@ -30,3 +30,7 @@
         <div>
             <%=t.taskType%>
         </div>
+
+router.put('/:id', ensureLoggedIn, taskCtrl.update)
+
+router.put('/:id', ensureLoggedIn, bulletCtrl.update)

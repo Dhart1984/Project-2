@@ -7,7 +7,8 @@ module.exports = {
   index,
   delete: deleteGoal,
   show,
-  newNote
+  newNote, 
+  update
 }
 
 function newGoal(req, res){
@@ -85,4 +86,19 @@ function newNote(req, res) {
     console.log(err)
     res.redirect('/')
   })
+}
+
+function update(req, res) {
+  const filter = { _id: `${req.params.id}` }
+  const update = {
+    goalName: req.body.name,
+    dueDate: req.body.dueDate,
+    goalType: req.body.goalType
+  }
+
+
+  Goal.findOneAndUpdate(filter, update)
+    .then(function(goal) {
+      res.redirect('/:id/show')
+    })
 }

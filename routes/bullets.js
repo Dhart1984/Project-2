@@ -18,4 +18,6 @@ router.delete('/:id',ensureLoggedIn, bulletCtrl.delete)
 
 
 
+
+
 module.exports = router;
