@@ -45,7 +45,6 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
-
 app.use('/', indexRouter)
 app.use('/tasks', taskRouter)
 app.use('/goals', goalRouter)
