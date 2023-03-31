@@ -1,9 +1,8 @@
 <%- include('../partials/header') %>
 
 <h4>Edit Goal</h4>
-<form action="/goals/<%= goal._id %>?_method=PUT" method="POST">
-    <form action="/goals" method="POST">
-        <label>Name:
+<form action="/goals/<%= goal._id %>/show" method="PUT">
+    <label>Name:
             <input type="text" name="goalName">
         </label>
         <label>Due Date:

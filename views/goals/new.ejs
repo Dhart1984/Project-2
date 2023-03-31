@@ -40,15 +40,11 @@
         <div>
             <%=g.goalType%>
         </div>
-            <form action="/goals/<%= g._id %>?_method=PUT"
-            class="edit-form" method="POST">
-            <button type="submit">Edit Goal</button>
-            </form>
             <form action="/goals/<%= g._id %>?_method=DELETE"
             class="delete-form" method="POST">
             <button type="submit">Delete</button>
             </form>
-    <br> 
+        <br> 
     <% }) %>
         </section>
     </div>

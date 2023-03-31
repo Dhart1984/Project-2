@@ -51,25 +51,11 @@
           </div>
     </form>           
 </section>
-<form action="/goals" method="PUT" class="new-form">
-    <label>Name:
-        <input type="text" name="goalName">
-    </label>
-    <label>Due Date:
-        <input type="date" name="dueDate">
-    </label>
-    <label>Goal Type:
-        <select name="goalType">
-            <option value="Priority">Priority</option>
-            <option value="Median">Median</option>
-            <option value="Unimportant">Unimportant</option>
-        </select>
-    </label>
-    
-    <form action="/goals/<%= goal._id %>/edit"
-        class="delete-form" method="POST">
+<section>
+    <form action="/goals/<%= goal._id%>/edit"
+        class="edit-form" method="GET">
         <button type="submit">Edit Goal</button>
     </form>
-    </form>
+</section>
 
 <%- include("../partials/footer") %>

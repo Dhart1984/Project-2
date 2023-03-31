@@ -7,8 +7,9 @@ module.exports = {
   index,
   delete: deleteGoal,
   show,
-  update,
-  newNote
+  edit,
+  newNote,
+  editButton
 }
 
 function newGoal(req, res){
@@ -56,7 +57,6 @@ function deleteGoal(req, res){
   })
 }
 function show(req, res){
-  
   Goal.findById(req.params.id)
   .populate('notes')
   .then(function(goal){
@@ -89,18 +89,24 @@ function newNote(req, res) {
 }
 
 
-function update(req, res) {
-  const filter = { _id: `${req.params.id}` }
-  const update = {
+function edit(req, res) {
+  let filter = { _id: `${req.params.id}` }
+  let update = {
     goalName: req.body.name,
     dueDate: req.body.dueDate,
     goalType: req.body.goalType
   }
-
-
-  Goal.findOneAndUpdate(filter, update)
+  
+  Goal.findByIdAndUpdate(req.params.id, update)
     .then(function(goal) {
-      res.render('goals/edit', {title: 'Edit goal', goal})
+      res.redirect(`/${goal._id}/show`)
     })
-
 }
+
+function editButton(req, res){
+  Goal.findById(req.params.id)
+  .then(function(goal){
+    res.render('goals/edit', {title: 'Edit Goal', goal})
+  })
+}
+
