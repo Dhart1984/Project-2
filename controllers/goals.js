@@ -7,7 +7,8 @@ module.exports = {
   index,
   delete: deleteGoal,
   show,
-  newNote
+  newNote,
+  update
 }
 
 function newGoal(req, res){
@@ -24,10 +25,10 @@ function create(req, res) {
     req.body.userAvatar = req.user.avatar;
 
   Goal.create(req.body)
-   .then(function(){
+  .then(function(){
       res.redirect('/goals')
-     })
-     .catch(function (err) {
+    })
+    .catch(function (err) {
       console.log(err) 
       res.redirect('/')
   }) 
@@ -84,5 +85,15 @@ function newNote(req, res) {
   }).catch(function(err){
     console.log(err)
     res.redirect('/')
+  })
+}
+
+function update (req, res){
+  const filter = {_id: `${req.params.id}`}
+  const goalUpdate = req.body
+  Goal.findOneAndUpdate(filter, goalUpdate)
+  .then(function(goal){
+    console.log(err)
+    res.redirect(`/bullets/${goal._id}`)
   })
 }

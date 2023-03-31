@@ -18,9 +18,9 @@
         <% if((goal.dueDate - now)>0){ %>
           <p class="task-info">This goal has <%=parseInt((goal.dueDate - now)/ (1000 * 3600 * 24))%> days more</p>
         <%}else { %>
-          <p class="task-info">This goal has passed the due date.</p>
+        <p class="task-info">This goal has passed the due date.</p>
         <%} %>
-      <%} %>
+    <%} %>
     </div>
     <div>Notes:</div>
     <div>
@@ -44,12 +44,32 @@
             <input type="text" name="journal">
         </label>
         <label>Date:
-          <input type="date" name="currentDate">
+        <input type="date" name="currentDate">
       </label>
         <div class="button-wrapper">
           <button class="addBtn" type="submit">Add Note</button>
           </div>
     </form>           
 </section>
+<form action="/goals" method="PUT" class="new-form">
+    <label>Name:
+        <input type="text" name="goalName">
+    </label>
+    <label>Due Date:
+        <input type="date" name="dueDate">
+    </label>
+    <label>Goal Type:
+        <select name="goalType">
+            <option value="Priority">Priority</option>
+            <option value="Median">Median</option>
+            <option value="Unimportant">Unimportant</option>
+        </select>
+    </label>
+    
+    <form action="/goals/<%= goal._id %>?_method=PUT"
+        class="delete-form" method="POST">
+        <button type="submit">Edit Goal</button>
+    </form>
+    </form>
 
 <%- include("../partials/footer") %>

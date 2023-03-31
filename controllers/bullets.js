@@ -15,7 +15,8 @@ module.exports = {
   new: newBullet,
   create,
   index,
-  delete: deleteBullet
+  delete: deleteBullet,
+  update
 }
 
 
@@ -52,7 +53,15 @@ function deleteBullet(req, res){
   })
 }
 
-
+function update (req, res){
+  const filter = {_id: `${req.params.id}`}
+  const bulletUpdate = req.body
+  Bullet.findOneAndUpdate(filter, bulletUpdate)
+  .then(function(bullet){
+    console.log(err)
+    res.redirect(`/bullets/${bullet._id}`)
+  })
+}
 
 
 

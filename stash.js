@@ -30,3 +30,5 @@
         <div>
             <%=t.taskType%>
         </div>
+
+        
