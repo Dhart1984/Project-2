@@ -60,7 +60,6 @@ function show(req, res){
   Goal.findById(req.params.id)
   .populate('notes')
   .then(function(goal){
-    console.log(goal)
     res.render('goals/show', {title: "Goal details", goal})
   })
   .catch(function(err){
@@ -81,16 +80,15 @@ function newNote(req, res) {
     return currentGoal.save()
   })
   .then(function(){
-    res.redirect(`/goals/${req.params.id}/show`)
+    res.redirect(`/${req.params.id}/show`)
   }).catch(function(err){
     console.log(err)
-    res.redirect('/')
+    res.redirect(`/${req.params.id}/show`)
   })
 }
 
 
 function edit(req, res) {
-  let filter = { _id: `${req.params.id}` }
   let update = {
     goalName: req.body.name,
     dueDate: req.body.dueDate,
@@ -99,7 +97,7 @@ function edit(req, res) {
   
   Goal.findByIdAndUpdate(req.params.id, update)
     .then(function(goal) {
-      res.redirect(`/${goal._id}/show`)
+      res.redirect(`/goals/${goal._id}/show`)
     })
 }
 

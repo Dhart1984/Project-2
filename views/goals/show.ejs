@@ -35,6 +35,12 @@
             <% } %>
             </ul>
     </div>
+    <div>
+        <form action="/goals/<%= goal._id%>/edit"
+             method="GET">
+            <button class="addBtn" type="submit">Edit Goal</button>
+        </form>
+    </div>
 </section>
 <section class="bottomP">
     <div>Add Notes to <%=goal.goalName%></div>
@@ -52,10 +58,7 @@
 </section>
 
 <section>
-    <form action="/goals/<%= goal._id%>/edit"
-        class="edit-form" method="GET">
-        <button type="submit">Edit Goal</button>
-    </form>
+    
 </section>
 
 

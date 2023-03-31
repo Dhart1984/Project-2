@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<section class="bottomP">
 <h4>Edit Goal</h4>
 <form action="/goals/<%= goal._id %>/show" method="PUT">
     <label>Name:
@@ -20,6 +20,7 @@
             <button class="addBtn" type="submit">Edit Goal</button>
         </div>
 </form>
+</section>
 
 
 <%- include('../partials/footer') %>
