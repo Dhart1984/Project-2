@@ -7,7 +7,6 @@ module.exports = {
   index,
   delete: deleteGoal,
   show,
-  newNote,
   update
 }
 
@@ -88,12 +87,19 @@ function newNote(req, res) {
   })
 }
 
-function update (req, res){
-  const filter = {_id: `${req.params.id}`}
-  const goalUpdate = req.body
-  Goal.findOneAndUpdate(filter, goalUpdate)
-  .then(function(goal){
-    console.log(err)
-    res.redirect(`/bullets/${goal._id}`)
-  })
+
+function update(req, res) {
+  const filter = { _id: `${req.params.id}` }
+  const update = {
+    goalName: req.body.name,
+    dueDate: req.body.dueDate,
+    goalType: req.body.goalType
+  }
+
+
+  Goal.findOneAndUpdate(filter, update)
+    .then(function(goal) {
+      res.redirect('/:id/show')
+    })
+
 }
