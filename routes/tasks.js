@@ -11,16 +11,14 @@ router.post('/',ensureLoggedIn, taskCtrl.create)
 
 router.get('/', taskCtrl.index)
 
-
-
 router.get('/', function (req, res, next) {
     res.send()
 })
 
+router.delete('/:id', ensureLoggedIn, taskCtrl.delete)
 
-router.delete('/:id',ensureLoggedIn, taskCtrl.delete)
 
-router.put('/:id', ensureLoggedIn, taskCtrl.update)
+
 
 module.exports = router;
 
