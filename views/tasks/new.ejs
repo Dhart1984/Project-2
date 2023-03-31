@@ -30,8 +30,8 @@
 <%}else { %>
   <h2><a href="/auth/google">Login</a> to Add a Task</h2>
 <%} %>
-<section class="results">
   <% tasks.forEach(t => { %>
+    <section>
     <%let now = new Date()%>
     <article class="task">
       <h3 class="task-title"><%=t.taskName%></h3>
@@ -49,12 +49,6 @@
         <button type="submit">Delete</button>
       </form>
     </article>
-  <!-- <% if (user?._id.equals(t.user)) { %>
-  <form action="/tasks/<%= t._id %>?_method=DELETE"
-    class="delete-form" method="POST">
-    <button type="submit">Delete</button>
-  </form>
-  <% } %> -->
   <br>
 </section>
 <% }) %>
