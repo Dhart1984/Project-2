@@ -13,6 +13,7 @@ router.post('/', ensureLoggedIn, bulletCtrl.create)
 
 router.delete('/:id',ensureLoggedIn, bulletCtrl.delete)
 
+router.put('/:id', ensureLoggedIn, bulletCtrl.update)
 
 
 

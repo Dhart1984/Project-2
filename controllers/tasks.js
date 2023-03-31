@@ -4,7 +4,8 @@ module.exports = {
   new: newTask,
   create,
   index,
-  delete: deleteTask
+  delete: deleteTask,
+  update
 }
 
 function newTask(req, res){
@@ -47,6 +48,13 @@ function deleteTask(req, res){
   })
 }
 
-
-//req.user.id
+function update (req, res){
+  const filter = {_id: `${req.params.id}`}
+  const taskUpdate = req.body
+  Task.findOneAndUpdate(filter, taskUpdate)
+  .then(function(task){
+    console.log(err)
+    res.redirect(`/bullets/${task._id}`)
+  })
+}
 

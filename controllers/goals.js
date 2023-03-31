@@ -7,7 +7,6 @@ module.exports = {
   index,
   delete: deleteGoal,
   show,
-  newNote, 
   update
 }
 
@@ -25,10 +24,10 @@ function create(req, res) {
     req.body.userAvatar = req.user.avatar;
 
   Goal.create(req.body)
-   .then(function(){
+  .then(function(){
       res.redirect('/goals')
-     })
-     .catch(function (err) {
+    })
+    .catch(function (err) {
       console.log(err) 
       res.redirect('/')
   }) 
@@ -88,6 +87,7 @@ function newNote(req, res) {
   })
 }
 
+
 function update(req, res) {
   const filter = { _id: `${req.params.id}` }
   const update = {
@@ -101,4 +101,5 @@ function update(req, res) {
     .then(function(goal) {
       res.redirect('/:id/show')
     })
+
 }
