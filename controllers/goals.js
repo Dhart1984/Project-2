@@ -7,7 +7,8 @@ module.exports = {
   index,
   delete: deleteGoal,
   show,
-  update
+  update,
+  newNote
 }
 
 function newGoal(req, res){
@@ -99,7 +100,7 @@ function update(req, res) {
 
   Goal.findOneAndUpdate(filter, update)
     .then(function(goal) {
-      res.redirect('/:id/show')
+      res.render('goals/edit', {title: 'Edit goal', goal})
     })
 
 }

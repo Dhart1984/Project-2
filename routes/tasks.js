@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 router.delete('/:id', ensureLoggedIn, taskCtrl.delete)
 
 
-router.put('/:id', ensureLoggedIn, taskCtrl.update)
+
 
 module.exports = router;
 

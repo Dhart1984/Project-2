@@ -1,8 +1,6 @@
 <%- include('../partials/header') %>
-<p>Type - <%= pokemon.type %></p>
-<p>Pokdex Number - <%= pokemon.pokeDexNo %></p>
 
-<h4>Edit Pokemon</h4>
+<h4>Edit Goal</h4>
 <form action="/goals/<%= goal._id %>?_method=PUT" method="POST">
     <form action="/goals" method="POST">
         <label>Name:
@@ -24,17 +22,5 @@
         </div>
 </form>
 
-
-<h4>Add a Move to this Pokemon</h4>
-<form action="/pokemon/<%= pokemon._id %>/moves/?_method=PUT" method="POST">
-    <form action="/pokemon" method="POST">
-        <label>Name:
-        <input type="text" name="name" autocomplete="off">
-        </label><br>
-        <label>Damage:
-        <input type="number" name="damage" autocomplete="off">
-        </label><br>
-    <button type="submit">Add Move to This Pokemon</button>
-</form>
 
 <%- include('../partials/footer') %>
