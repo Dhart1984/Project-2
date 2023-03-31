@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<p>Type - <%= pokemon.type %></p>
+<p>Pokdex Number - <%= pokemon.pokeDexNo %></p>
+
+<h4>Edit Pokemon</h4>
+<form action="/goals/<%= goal._id %>?_method=PUT" method="POST">
+    <form action="/goals" method="POST">
+        <label>Name:
+            <input type="text" name="goalName">
+        </label>
+        <label>Due Date:
+            <input type="date" name="dueDate">
+        </label>
+        <label>Goal Type:
+            <select name="goalType">
+                <option value="Priority">Priority</option>
+                <option value="Median">Median</option>
+                <option value="Unimportant">Unimportant</option>
+            </select>
+        </label>
+        
+        <div class="button-wrapper">
+            <button class="addBtn" type="submit">Edit Goal</button>
+        </div>
+</form>
+
+
+<h4>Add a Move to this Pokemon</h4>
+<form action="/pokemon/<%= pokemon._id %>/moves/?_method=PUT" method="POST">
+    <form action="/pokemon" method="POST">
+        <label>Name:
+        <input type="text" name="name" autocomplete="off">
+        </label><br>
+        <label>Damage:
+        <input type="number" name="damage" autocomplete="off">
+        </label><br>
+    <button type="submit">Add Move to This Pokemon</button>
+</form>
+
+<%- include('../partials/footer') %>

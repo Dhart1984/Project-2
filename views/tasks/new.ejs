@@ -28,7 +28,7 @@
 </div>
 </form>
 <%}else { %>
-  <h2><a href="/auth/google">Login</a> to Add a Task</h2>
+  <h2>Please <a href="/auth/google">Login</a> to add a Task</h2>
 <%} %>
   <% tasks.forEach(t => { %>
     <section>
@@ -53,5 +53,4 @@
 </section>
 <% }) %>
 </main>
-
 <%- include("../partials/footer") %>

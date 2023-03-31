@@ -17,6 +17,9 @@ router.delete('/:id',ensureLoggedIn, goalCtrl.delete)
 
 router.post('/:id/show', goalCtrl.newNote)
 
-router.put('/:id', ensureLoggedIn, goalCtrl.update)
+
+router.put('/:id/edit', ensureLoggedIn, goalCtrl.update)
+
+
 
 module.exports = router;

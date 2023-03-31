@@ -19,4 +19,6 @@ router.put('/:id', ensureLoggedIn, bulletCtrl.update)
 
 
 
+
+
 module.exports = router;
