@@ -35,9 +35,8 @@
             <% } %>
             </ul>
     </div>
-    
 </section>
-<section>
+<section class="bottomP">
     <div>Add Notes to <%=goal.goalName%></div>
     <form method="POST" action="/goals/<%=goal._id%>/show">
         <label>Add Notes:
@@ -45,17 +44,20 @@
         </label>
         <label>Date:
         <input type="date" name="currentDate">
-      </label>
+    </label>
         <div class="button-wrapper">
-          <button class="addBtn" type="submit">Add Note</button>
-          </div>
+        <button class="addBtn" type="submit">Add Note</button>
+        </div>
     </form>           
 </section>
+
 <section>
     <form action="/goals/<%= goal._id%>/edit"
         class="edit-form" method="GET">
         <button type="submit">Edit Goal</button>
     </form>
 </section>
+
+
 
 <%- include("../partials/footer") %>

@@ -371,9 +371,38 @@ footer {
   text-align: center;
 }
 
+.show-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+}
 
+.show-page div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 
+.bottomP {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  text-align: center;
+}
 
+.bottomP div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 
 
 
