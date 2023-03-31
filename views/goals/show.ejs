@@ -50,6 +50,14 @@
         </div>
     </form>           
 </section>
+
+<section>
+    <form action="/goals/<%= goal._id%>/edit"
+        class="edit-form" method="GET">
+        <button type="submit">Edit Goal</button>
     </form>
+</section>
+
+
 
 <%- include("../partials/footer") %>

@@ -17,8 +17,10 @@ router.delete('/:id',ensureLoggedIn, goalCtrl.delete)
 
 router.post('/:id/show', goalCtrl.newNote)
 
+router.get('/:id/edit', ensureLoggedIn, goalCtrl.editButton)
 
-router.put('/:id/edit', ensureLoggedIn, goalCtrl.update)
+router.put('/:id/show', ensureLoggedIn, goalCtrl.edit)
+
 
 
 
