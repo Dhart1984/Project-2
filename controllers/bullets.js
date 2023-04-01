@@ -36,7 +36,8 @@ function create(req, res) {
 function index(req, res) {
   Bullet.find({})
       .then(function (bullets) {
-          res.render('tasks/bullets', { bullets, title: 'Journal' })
+          let bullet = req.body
+          res.render('tasks/bullets', { bullets, title: 'Journal' , bullet})
       })
       .catch(function (err) {
           console.log(err) // log the error for debugging or redirect to error page 

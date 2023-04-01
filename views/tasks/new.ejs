@@ -3,7 +3,7 @@
   <div class="addTask">
 <h1>Add Tasks</h1>
 
-<% if (user) { %>
+<% if ( user && user._id == task.user) {%>
 <form action="/tasks" method="POST" class="new-form">
   <label>Name:
       <input type="text" name="taskName">
@@ -32,7 +32,11 @@
     <%let now = new Date()%>
     <article class="task">
       <h3 class="task-title"><%=t.taskName%></h3>
-      <p class="task-info">Due Date: <%=t.dueDate%></p>
+      <p class="task-info">Due Date: 
+        <% t.dueDate.setDate(t.dueDate.getDate() + 1) %>
+        <% t.dueDate.setMonth(t.dueDate.getMonth() + 1)%>
+        <%=t.dueDate.getMonth() +"/" + t.dueDate.getDate()+"/" +t.dueDate.getFullYear()%>
+      </p>
       <p class="task-info">Task Type: <%=t.taskType%></p>
       <% if(t.dueDate){ %>
         <% if((t.dueDate - now)>0){ %>
@@ -50,7 +54,7 @@
 </section>
 <% }) %>
 <%}else { %>
-  <h2><a href="/auth/google">Login</a> to Add a Task</h2>
+  <h2><a href="/auth/google">Login</a></h2>
 <%} %>
 </main>
 <%- include("../partials/footer") %>

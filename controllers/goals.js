@@ -13,9 +13,13 @@ module.exports = {
 }
 
 function newGoal(req, res){
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   Goal.find({})
   .then(function(goals){
-    res.render('goals/new', {title: 'Enter a new Goal', goals})
+    let goal = req.body
+    res.render('goals/new', {title: 'Enter a new Goal', goals, goal})
   })
   console.log("check to see if working")
 }
@@ -37,9 +41,13 @@ function create(req, res) {
 }
 
 function index(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   Goal.find({})
       .then(function (goals) {
-          res.render('goals/new', { goals, title: 'All Goals' })
+        let goal = req.body
+          res.render('goals/new', { goals, title: 'All Goals', goal })
       })
       .catch(function (err) {
           console.log(err) // log the error for debugging or redirect to error page 
@@ -48,6 +56,9 @@ function index(req, res) {
 }
 
 function deleteGoal(req, res){
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
   Goal.findByIdAndDelete(req.params.id)
   .then(function(){
     res.redirect('/goals')
@@ -57,10 +68,12 @@ function deleteGoal(req, res){
   })
 }
 function show(req, res){
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   Goal.findById(req.params.id)
   .populate('notes')
   .then(function(goal){
-    console.log(goal)
     res.render('goals/show', {title: "Goal details", goal})
   })
   .catch(function(err){
@@ -69,10 +82,14 @@ function show(req, res){
 }
 
 function newNote(req, res) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   const newId = req.params.id
    let currentGoal
   Goal.findById(newId)
   .then(function(goal){
+    req.body.user = req.user._id
     currentGoal = goal
     return Bullet.create(req.body)
   })  
@@ -84,26 +101,35 @@ function newNote(req, res) {
     res.redirect(`/goals/${req.params.id}/show`)
   }).catch(function(err){
     console.log(err)
-    res.redirect('/')
+    res.redirect(`/goals`)
   })
 }
 
 
-function edit(req, res) {
-  let filter = { _id: `${req.params.id}` }
+function edit(req, res, next) {
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   let update = {
-    goalName: req.body.name,
+    goalName: req.body.goalName,
     dueDate: req.body.dueDate,
     goalType: req.body.goalType
   }
   
-  Goal.findByIdAndUpdate(req.params.id, update)
+  Goal.findOneAndUpdate({_id: req.params.id}, update)
     .then(function(goal) {
-      res.redirect(`/${goal._id}/show`)
+      console.log(goal)
+      res.redirect(`/goals/${goal._id}/show`)
+    })
+    .catch(function(err){
+      next(err)
     })
 }
 
 function editButton(req, res){
+  req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
   Goal.findById(req.params.id)
   .then(function(goal){
     res.render('goals/edit', {title: 'Edit Goal', goal})
