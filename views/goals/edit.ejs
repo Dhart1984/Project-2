@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 <section class="bottomP">
+<% if ( user && user._id == goal.user) {%>
 <h4>Edit Goal</h4>
-<form action="/goals/<%= goal._id %>/show" method="PUT">
+<form action="/goals/<%= goal._id %>/show?_method=PUT" method="POST">
     <label>Name:
             <input type="text" name="goalName">
         </label>
@@ -20,6 +21,7 @@
             <button class="addBtn" type="submit">Edit Goal</button>
         </div>
 </form>
+<% } %>
 </section>
 
 

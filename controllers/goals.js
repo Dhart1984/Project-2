@@ -72,6 +72,7 @@ function newNote(req, res) {
    let currentGoal
   Goal.findById(newId)
   .then(function(goal){
+    req.body.user = req.user._id
     currentGoal = goal
     return Bullet.create(req.body)
   })  
@@ -80,24 +81,28 @@ function newNote(req, res) {
     return currentGoal.save()
   })
   .then(function(){
-    res.redirect(`/${req.params.id}/show`)
+    res.redirect(`/goals/${req.params.id}/show`)
   }).catch(function(err){
     console.log(err)
-    res.redirect(`/${req.params.id}/show`)
+    res.redirect(`/goals`)
   })
 }
 
 
-function edit(req, res) {
+function edit(req, res, next) {
   let update = {
-    goalName: req.body.name,
+    goalName: req.body.goalName,
     dueDate: req.body.dueDate,
     goalType: req.body.goalType
   }
   
-  Goal.findByIdAndUpdate(req.params.id, update)
+  Goal.findOneAndUpdate({_id: req.params.id}, update)
     .then(function(goal) {
+      console.log(goal)
       res.redirect(`/goals/${goal._id}/show`)
+    })
+    .catch(function(err){
+      next(err)
     })
 }
 
