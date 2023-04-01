@@ -148,7 +148,7 @@ h1 {
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  max-width: 14%;
+  max-width: 75px;
 }
 
 .delete-form button:hover {
