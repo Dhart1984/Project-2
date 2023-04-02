@@ -1,6 +1,6 @@
 # Project-2 
 Project Name: TaskMastermind - a personal tracker.
-Team : Shilpa Sivarajan, Jose Aguirre, and Donald Hart. 
+Team : **Shilpa Sivarajan, Jose Aguirre, and Donald Hart.**
 
 ## Screenshots
 ![image](https://i.imgur.com/Upo2ews.png)
