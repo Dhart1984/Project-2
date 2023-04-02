@@ -15,6 +15,7 @@
   </form>
   <section class="results2">
     <% bullets.forEach(b => { %>
+      <%if(user.name == b.userName){%>
       <div><strong>Journal:</strong></div>
       <br>
       <div><%=b.journal%></div>
@@ -30,6 +31,7 @@
       <form action="/bullets/<%= b._id %>?_method=DELETE" class="delete-form" method="POST">
         <button type="submit">Delete</button>
       </form>
+      <%}%>
     <% }) %>
   </section>
 </div>

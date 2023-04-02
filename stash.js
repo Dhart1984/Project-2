@@ -34,7 +34,11 @@
 router.put('/:id', ensureLoggedIn, taskCtrl.update)
 
 router.put('/:id', ensureLoggedIn, bulletCtrl.update)
+<% t.dueDate.setMonth(t.dueDate.getMonth() - 1)%>
 
+
+            
+            
 
         
 

@@ -29,6 +29,7 @@
         </form>
     </div>
     <% tasks.forEach(t => { %>
+      <%if(user.name == t.userName){%>
       <section>
         <%let now = new Date()%>
         <article class="task">
@@ -54,6 +55,7 @@
         </article>
         <br>
       </section>
+      <%}%>
     <% }) %>
   <%}else { %>
     <h2><a href="/auth/google">Login</a></h2>
