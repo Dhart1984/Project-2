@@ -2,16 +2,16 @@ const mongoose = require("mongoose")
 
 const dailyTaskSchema = new mongoose.Schema({
     taskName: {
-        type: String,
-
+        type: String
     },
     dueDate: {
-        type: Date,        
+        type: Date     
     },
     taskType: {
         type: String,
         enum: ["Work", "Health", "Fitness", "Household", "Travel", "Shopping", "Other"]
-    } ,user: {
+    },
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true

@@ -2,7 +2,7 @@
 <title>Goals</title>
 <div class="page-container">
     <div class="content-container">
-        <% if ( user && user._id == goal.user) {%>
+        <% if ( user) {%>
             <div class="addTask1">
                 <h1>Got any Goals?</h1>
    
@@ -28,6 +28,7 @@
            
         <section class="results1">
             <% goals.forEach(g => { %>
+                <%if(user.name == g.userName){%>
                 <div>Goal Name:</div>
                 <div>
                     <a class="btn-detail" href="/goals/<%=g._id%>/show"><%=g.goalName%></a>
@@ -46,6 +47,7 @@
                     <button type="submit">Delete</button>
                 </form>
                 <br> 
+                <%}%>
             <% }) %>
         </section>
         <% } else {%>
