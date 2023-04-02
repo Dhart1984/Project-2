@@ -1,15 +1,4 @@
-const Bullet = require('../models/Bullet');
-
-
-function newBullet(req, res){
-  Bullet.find({}).then(function(bullets){
-    res.render('tasks/bullets', {title: 'Enter a new Bullet', bullets})
-
-
-  }) .catch(function (err) {
-    console.log(err) // log the error for debugging or redirect to error page 
-    res.redirect('/')
-})}
+const Bullet = require('../models/Bullet')
 
 module.exports = {
   new: newBullet,
@@ -19,12 +8,20 @@ module.exports = {
   update
 }
 
-
+function newBullet(req, res){
+  Bullet.find({}).then(function(bullets){
+    res.render('tasks/bullets', {title: 'Enter a new Bullet', bullets})
+  })
+  .catch(function (err){
+    console.log(err) // log the error for debugging or redirect to error page 
+    res.redirect('/')
+  })
+}
 
 function create(req, res) {
   req.body.user = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
 
   Bullet.create(req.body).then(function (newBullet) {
       console.log(newBullet)
@@ -35,13 +32,14 @@ function create(req, res) {
 
 function index(req, res) {
   Bullet.find({})
-      .then(function (bullets) {
-          res.render('tasks/bullets', { bullets, title: 'Journal' })
-      })
-      .catch(function (err) {
-          console.log(err) // log the error for debugging or redirect to error page 
-          res.redirect('/')
-      })
+  .then(function (bullets) {
+      let bullet = req.body
+      res.render('tasks/bullets', { bullets, title: 'Journal' , bullet})
+  })
+  .catch(function (err) {
+      console.log(err) // log the error for debugging or redirect to error page 
+      res.redirect('/')
+  })
 }
 
 function deleteBullet(req, res){
@@ -57,6 +55,7 @@ function deleteBullet(req, res){
 function update (req, res){
   const filter = {_id: `${req.params.id}`}
   const bulletUpdate = req.body
+
   Bullet.findOneAndUpdate(filter, bulletUpdate)
   .then(function(bullet){
     console.log(err)

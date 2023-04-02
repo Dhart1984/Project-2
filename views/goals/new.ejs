@@ -1,51 +1,56 @@
 <%- include("../partials/header", {title}) %>
 <title>Goals</title>
 <div class="page-container">
-  <div class="content-container">
-    <div class="addTask1">
-      <h1>Got any Goals?</h1>
-      <% if (user) { %>
-      <form action="/goals" method="POST" class="new-form">
-        <label>Name:
-          <input type="text" name="goalName">
-        </label>
-        <label>Due Date:
-          <input type="date" name="dueDate">
-        </label>
-        <label>Goal Type:
-          <select name="goalType">
-            <option value="Priority">Priority</option>
-            <option value="Median">Median</option>
-            <option value="Unimportant">Unimportant</option>
-          </select>
-        </label>
-        <div class="button-wrapper">
-          <button class="addBtn" type="submit">Add Goal</button>
-        </div>
-    </div>
-    </form>
-    <%}else { %>
-    <h2>Please <a href="/auth/google">Login</a> to Add a Goal</h2>
-    <%} %>
-    <section class="results1"><% goals.forEach(g => { %>
-      <div>Goal Name:</div>
-      <div>
-        <a class="btn-detail" href="/goals/<%=g._id%>/show"><%=g.goalName%></a>
-      </div>
-      <div>Due Date:</div>
-      <div>
-        <%=g.dueDate%>
-      </div>
-      <div>Priority:</div>
-      <div>
-        <%=g.goalType%>
-      </div>
-      <form action="/goals/<%= g._id %>?_method=DELETE" class="delete-form" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-      <br>
-  </div>
-  <% }) %>
-  </section>
+    <div class="content-container">
+        <% if ( user && user._id == goal.user) {%>
+            <div class="addTask1">
+                <h1>Got any Goals?</h1>
+   
+                <form action="/goals" method="POST" class="new-form">
+                    <label>Name:
+                        <input type="text" name="goalName">
+                    </label>
+                    <label>Due Date:
+                        <input type="date" name="dueDate">
+                    </label>
+                    <label>Goal Type:
+                        <select name="goalType">
+                            <option value="Priority">Priority</option>
+                            <option value="Median">Median</option>
+                            <option value="Unimportant">Unimportant</option>
+                        </select>
+                    </label>
+                    <div class="button-wrapper">
+                        <button class="addBtn" type="submit">Add Goal</button>
+                    </div>
+                </form>
+            </div>
+           
+        <section class="results1">
+            <% goals.forEach(g => { %>
+                <div>Goal Name:</div>
+                <div>
+                    <a class="btn-detail" href="/goals/<%=g._id%>/show"><%=g.goalName%></a>
+                </div>
+                <div>Due Date:</div>
+                <div>
+                    <% g.dueDate.setDate(g.dueDate.getDate() + 1) %>
+                    <% g.dueDate.setMonth(g.dueDate.getMonth() + 1)%>
+                    <%=g.dueDate.getMonth() +"/" + g.dueDate.getDate()+"/" +g.dueDate.getFullYear()%>
+                </div>
+                <div>Priority:</div>
+                <div>
+                    <%=g.goalType%>
+                </div>
+                <form action="/goals/<%= g._id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                <br> 
+            <% }) %>
+        </section>
+        <% } else {%>
+            <p>Please <a href="/auth/google">Login</a></p>
+        <% } %>
+    </div>    
 </div>
 <%- include("../partials/footer") %>

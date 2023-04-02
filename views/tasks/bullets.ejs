@@ -1,7 +1,7 @@
 <%- include("../partials/header", {title}) %>
 <div class="bulletpage">
   <h1>Got any side notes?</h1>
-  <% if (user) { %>
+  
   <form action="/bullets" method="POST" class="new-form">
     <label>Add Notes:
       <input type="text" name="journal">
@@ -15,25 +15,24 @@
   </form>
   <section class="results2">
     <% bullets.forEach(b => { %>
-    <div><strong>Journal:</strong></div>
-    <br>
-    <div>
-      <%=b.journal%>
-    </div>
-    <br>
-    <div><strong>Date:</strong></div>
-    <br>
-    <div>
-      <%=b.currentDate%>
-    </div>
-    <br>
-    <form action="/bullets/<%= b._id %>?_method=DELETE" class="delete-form" method="POST">
-      <button type="submit">Delete</button>
-    </form>
-  <% }) %>
+      <div><strong>Journal:</strong></div>
+      <br>
+      <div><%=b.journal%></div>
+      <br>
+      <div><strong>Date:</strong></div>
+      <br>
+      <div>
+        <% b.currentDate.setDate(b.currentDate.getDate() + 1) %>
+        <% b.currentDate.setMonth(b.currentDate.getMonth() + 1)%>
+        <%=b.currentDate.getMonth() +"/" + b.currentDate.getDate()+"/" +b.currentDate.getFullYear()%>
+      </div>
+      <br>
+      <form action="/bullets/<%= b._id %>?_method=DELETE" class="delete-form" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    <% }) %>
+  </section>
 </div>
-</section>
-<%}else { %>
-<h2>Please <a href="/auth/google">Login</a> to Add a to Journal</h2>
-<%} %>
+
+
 <%- include("../partials/footer") %>
