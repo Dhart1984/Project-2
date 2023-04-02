@@ -2,6 +2,10 @@
 Project Name: TaskMastermind - a personal tracker.
 Team : Shilpa, Jose, and Donald. 
 
+## Screenshots
+![image](https://i.imgur.com/Upo2ews.png)
+![image](https://i.imgur.com/Ie8xGs8.png)
+
 ## Technologies Used
 HTML, CSS, JavaScript, Mongoose, EJS, Passport, Google OAuth, Express, Node, Heroku
 
