@@ -1,10 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 const goalCtrl = require('../controllers/goals')
-const ensureLoggedIn = require('../config/ensureLoggedIn');
+const ensureLoggedIn = require('../config/ensureLoggedIn')
 
-
-// index route
 router.get('/', goalCtrl.index)
 
 router.get('/',ensureLoggedIn, goalCtrl.new)

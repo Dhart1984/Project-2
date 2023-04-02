@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const goalSchema = new mongoose.Schema({
     goalName: {
@@ -12,20 +12,18 @@ const goalSchema = new mongoose.Schema({
         ref: 'Bullet'
     }],
     goalType: {
-    type: String,
-    enum: ["Priority", "Median", "Unimportant", ]
-}, user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  userName: String,
-  userAvatar: String
-}
-,{
+        type: String,
+        enum: ["Priority", "Median", "Unimportant", ]
+    }, 
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    userName: String,
+    userAvatar: String
+},{
     timestamps: true
 })
-
-
 
 module.exports = mongoose.model('Goal', goalSchema)

@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 <section class="bottomP">
 
-<h4>Edit Goal</h4>
-<form action="/goals/<%= goal._id %>/show?_method=PUT" method="POST">
-    <label>Name:
+    <h4>Edit Goal</h4>
+    <form action="/goals/<%= goal._id %>/show?_method=PUT" method="POST">
+        <label>Name:
             <input type="text" name="goalName">
         </label>
         <label>Due Date:
@@ -20,7 +20,7 @@
         <div class="button-wrapper">
             <button class="addBtn" type="submit">Edit Goal</button>
         </div>
-</form>
+    </form>
 
 </section>
 

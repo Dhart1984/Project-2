@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const bulletSchema = new mongoose.Schema({
     journal: {
@@ -11,11 +11,12 @@ const bulletSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-      },
-      userName: String,
-      userAvatar: String
+    },
+    userName: String,
+    userAvatar: String
     
 },{
     timestamps: true
 })
+
 module.exports = mongoose.model('Bullet', bulletSchema)

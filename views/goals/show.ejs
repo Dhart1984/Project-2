@@ -7,45 +7,43 @@
         <%=goal.goalName%>
     </div>
     <div>Due Date:</div>
-    <div>
-        
+    <div>        
         <% goal.dueDate.setDate(goal.dueDate.getDate() + 1) %>
         <% goal.dueDate.setMonth(goal.dueDate.getMonth() + 1)%>
         <%=goal.dueDate.getMonth() +"/" + goal.dueDate.getDate()+"/" +goal.dueDate.getFullYear()%>
-        
     </div>
     <div>Goal Type: </div>
     <div>
         <%=goal.goalType%>
     </div>
     <div>
-    <%let now = new Date()%>
-    <% if(goal.dueDate){ %>
-        <% if((goal.dueDate - now)>0){ %>
-          <p class="task-info">This goal has <%=parseInt((goal.dueDate - now)/ (1000 * 3600 * 24))%> days more</p>
-        <%}else { %>
-        <p class="task-info">This goal has passed the due date.</p>
+        <%let now = new Date()%>
+        <% if(goal.dueDate){ %>
+            <% if((goal.dueDate - now)>0){ %>
+                <% goal.dueDate.setDate(goal.dueDate.getDate()) %>
+                <% goal.dueDate.setMonth(goal.dueDate.getMonth() - 1)%>
+                <p class="task-info">This goal has <%=parseInt((goal.dueDate - now)/ (1000 * 3600 * 24))%> days more</p>
+            <%}else { %>
+                <p class="task-info">This goal has passed the due date.</p>
+            <%} %>
         <%} %>
-    <%} %>
     </div>
     <div>Notes:</div>
     <div>
         <ul>
-        <% if(goal.notes.length) { %>
+            <% if(goal.notes.length) { %>
             <% goal.notes.forEach(b=>{%>
                 <% b.currentDate.setDate(b.currentDate.getDate() + 1) %>
                 <% b.currentDate.setMonth(b.currentDate.getMonth() + 1)%>
-                    <li><%=b.journal%> || <%=b.currentDate.getMonth() +"/" + b.currentDate.getDate()+"/" +b.currentDate.getFullYear()%> </li>
-                <%})%>
-                
+                <li><%=b.journal%> || <%=b.currentDate.getMonth() +"/" + b.currentDate.getDate()+"/" +b.currentDate.getFullYear()%> </li>
+            <%})%>
             <% } else { %>
                 <li>No notes available.</li>
             <% } %>
-            </ul>
+        </ul>
     </div>
     <div>
-        <form action="/goals/<%= goal._id%>/edit"
-             method="GET">
+        <form action="/goals/<%= goal._id%>/edit" method="GET">
             <button class="addBtn" type="submit">Edit Goal</button>
         </form>
     </div>
@@ -57,17 +55,13 @@
             <input type="text" name="journal">
         </label>
         <label>Date:
-        <input type="date" name="currentDate">
-    </label>
+            <input type="date" name="currentDate">
+        </label>
         <div class="button-wrapper">
-        <button class="addBtn" type="submit">Add Note</button>
+            <button class="addBtn" type="submit">Add Note</button>
         </div>
     </form>
     
 </section>
-
-
-
-
 
 <%- include("../partials/footer") %>
