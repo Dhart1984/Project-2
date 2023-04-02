@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const dailyTaskSchema = new mongoose.Schema({
     taskName: {
@@ -15,13 +15,11 @@ const dailyTaskSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-      },
-      userName: String,
-      userAvatar: String
-    }
-,{
+    },
+    userName: String,
+    userAvatar: String
+},{
     timestamps: true
 })
-
 
 module.exports = mongoose.model('Daily-Task', dailyTaskSchema)

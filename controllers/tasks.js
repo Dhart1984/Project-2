@@ -4,43 +4,47 @@ module.exports = {
   new: newTask,
   create,
   index,
-  delete: deleteTask,  
+  delete: deleteTask 
 }
 
 function newTask(req, res){
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
-  Task.find({}).then(function(tasks){
+
+  Task.find({})
+  .then(function(tasks){
     let task = req.body
     res.render('tasks/new', {title: 'Enter a new Task', tasks, task})
-  }) .catch(function (err) {
+  }) 
+  .catch(function (err) {
     console.log(err) // log the error for debugging or redirect to error page 
     res.redirect('/')
-})}
+  })
+}
 
 function create(req, res) {
   req.body.user = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
 
   Task.create(req.body).then(function (newTask) {
-      // console.log(newTasks)
-      res.redirect('/tasks')
+    res.redirect('/tasks')
   })
-  console.log(req.body)
+  
 }
 
 function index(req, res) {
   Task.find({})
-      .then(function (tasks) {
-          res.render('index', { tasks, title: 'All Tasks' })
-      })
-      .catch(function (err) {
-          console.log(err) // log the error for debugging or redirect to error page 
-          res.redirect('/')
-      })
+  .then(function (tasks) {
+    res.render('index', { tasks, title: 'All Tasks' })
+  })
+  .catch(function (err) {
+    console.log(err) // log the error for debugging or redirect to error page 
+    res.redirect('/')
+  })
 }
+
 function deleteTask(req, res){
   Task.findByIdAndDelete(req.params.id)
   .then(function(){
