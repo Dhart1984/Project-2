@@ -11,7 +11,7 @@ HTML, CSS, JavaScript, Mongoose, EJS, Passport, Google OAuth, Express, Node, Her
 
 ## Getting Started 
 
-Click on [Task Mastermind](https://whispering-retreat-89173.herokuapp.com/home) to start using this app. 
+Click on [Task Mastermind](https://taskmastermind.herokuapp.com/home) to start using this app. 
 
 TaskMastermind is a "task-reminder" web-application with full- CRUD functionality. 
 
