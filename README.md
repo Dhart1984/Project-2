@@ -1,6 +1,11 @@
 # Project-2 
-Project Name: TaskMastermind - a personal tracker.
+**Project Name: TaskMastermind - a personal tracker.**
 Team : **Shilpa Sivarajan, Jose Aguirre, and Donald Hart.**
+
+Special Thanks to our:
+1) Instructional Team: **Joshua Smith, Zakariah O'Mara Mezzano, Brian Krabec**
+2) Teaching Assistant: **Rosanne Anderson**
+3) Classmate: **Anthony Scott**
 
 ## Screenshots
 ![image](https://i.imgur.com/Upo2ews.png)
