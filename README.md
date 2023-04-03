@@ -49,3 +49,4 @@ TaskMastermind is a "task-reminder" web-application with full- CRUD functionalit
 3) Many to many relationship: users can see other users tasks / or / one task can be shared amongst many user 
 4) Add darkmode to CSS
 5) Fix bugs
+6) Add a filter function to filter tasks by priority
