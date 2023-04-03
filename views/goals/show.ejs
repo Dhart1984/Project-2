@@ -8,9 +8,7 @@
     </div>
     <div>Due Date:</div>
     <div>        
-        <% goal.dueDate.setDate(goal.dueDate.getDate() + 1) %>
-        <% goal.dueDate.setMonth(goal.dueDate.getMonth() + 1)%>
-        <%=goal.dueDate.getMonth() +"/" + goal.dueDate.getDate()+"/" +goal.dueDate.getFullYear()%>
+        <%=goal.dueDate%>
     </div>
     <div>Goal Type: </div>
     <div>
@@ -19,8 +17,8 @@
     <div>
         <%let now = new Date()%>
         <% if(goal.dueDate){ %>
-            <% if((goal.dueDate - now)>0){ %>
-                <% goal.dueDate.setMonth(goal.dueDate.getMonth() - 1)%>
+            <% if((goal.dueDate - now)>0){ %>              
+
                 <p class="task-info">This goal has <%=parseInt((goal.dueDate - now)/ (1000 * 3600 * 24))%> days more</p>
             <%}else { %>
                 <p class="task-info">This goal has passed the due date.</p>
@@ -32,9 +30,7 @@
         <ul>
             <% if(goal.notes.length) { %>
             <% goal.notes.forEach(b=>{%>
-                <% b.currentDate.setDate(b.currentDate.getDate() + 1) %>
-                <% b.currentDate.setMonth(b.currentDate.getMonth() + 1)%>
-                <li><%=b.journal%> || <%=b.currentDate.getMonth() +"/" + b.currentDate.getDate()+"/" +b.currentDate.getFullYear()%> </li>
+                <li><%=b.journal%> || <%=b.currentDate%> </li>
             <%})%>
             <% } else { %>
                 <li>No notes available.</li>
