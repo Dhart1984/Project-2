@@ -3,8 +3,6 @@
   <% if ( user && user._id == task.user) {%>
     <div class="addTask">
       <h1>Add Tasks</h1>
-
-      
         <form action="/tasks" method="POST" class="new-form">
           <label>Name:
             <input type="text" name="taskName">
@@ -35,7 +33,10 @@
         <article class="task">
           <h3 class="task-title"><%=t.taskName%></h3>
           <p class="task-info">Due Date: 
+
             <%=t.dueDate%>
+
+
           </p>
           <p class="task-info">Task Type: <%=t.taskType%></p>
           <% if(t.dueDate){ %>
