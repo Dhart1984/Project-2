@@ -20,7 +20,6 @@
         <%let now = new Date()%>
         <% if(goal.dueDate){ %>
             <% if((goal.dueDate - now)>0){ %>
-                <% goal.dueDate.setDate(goal.dueDate.getDate()) %>
                 <% goal.dueDate.setMonth(goal.dueDate.getMonth() - 1)%>
                 <p class="task-info">This goal has <%=parseInt((goal.dueDate - now)/ (1000 * 3600 * 24))%> days more</p>
             <%}else { %>

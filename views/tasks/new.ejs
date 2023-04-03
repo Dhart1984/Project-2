@@ -33,7 +33,6 @@
         <article class="task">
           <h3 class="task-title"><%=t.taskName%></h3>
           <p class="task-info">Due Date: 
-            <% t.dueDate.setDate(t.dueDate.getDate() + 1) %>
             <% t.dueDate.setMonth(t.dueDate.getMonth() + 1)%>
             <%=t.dueDate.getMonth() +"/" + t.dueDate.getDate()+"/" +t.dueDate.getFullYear()%>
           </p>
