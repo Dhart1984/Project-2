@@ -23,9 +23,7 @@
       <div><strong>Date:</strong></div>
       <br>
       <div>
-        <% b.currentDate.setDate(b.currentDate.getDate() + 1) %>
-        <% b.currentDate.setMonth(b.currentDate.getMonth() + 1)%>
-        <%=b.currentDate.getMonth() +"/" + b.currentDate.getDate()+"/" +b.currentDate.getFullYear()%>
+        <%=b.currentDate%>
       </div>
       <br>
       <form action="/bullets/<%= b._id %>?_method=DELETE" class="delete-form" method="POST">
