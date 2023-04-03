@@ -38,3 +38,10 @@ router.put('/:id', ensureLoggedIn, bulletCtrl.update)
 
         
 
+<% b.currentDate.setDate(b.currentDate.getDate() + 1) %>
+
+<% t.dueDate.setDate(t.dueDate.getDate() + 1) %>
+
+<% goal.dueDate.setDate(goal.dueDate.getDate()) %>
+
+<% g.dueDate.setDate(g.dueDate.getDate() + 1) %>
